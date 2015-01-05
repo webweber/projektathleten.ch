@@ -30,7 +30,8 @@ font-family:'NHaasGroteskDSW01-96Blk';
 
 body,td,th {
 	font-size:  1.6rem;
-	background-color: #f3efef;
+	background-color: #cccccc;
+	
 }
 
 .invisible{
@@ -66,6 +67,31 @@ a:active {}
 	margin-left: auto;
 	margin-right: auto;
 	text-align:left;
+	
+	
+	background-size: 400% 400%;
+
+-webkit-animation: AnimationName 30s ease infinite;
+-moz-animation: AnimationName 30s ease infinite;
+animation: AnimationName 30s ease infinite;
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:11% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:11% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:11% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:11% 0%}
+}
+@keyframes AnimationName { 
+    0%{background-position:11% 0%}
+    50%{background-position:90% 100%}
+    100%{background-position:11% 0%}
+}
+
+
 }
 
 #navi_main{
