@@ -50,7 +50,7 @@ jQuery(document).ready(function($){
 				setTimeout(function(){ headline.find('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
 			} else if (headline.hasClass('clip')){
 				var spanWrapper = headline.find('.cd-words-wrapper'),
-					newWidth = spanWrapper.width() + 10
+					newWidth = spanWrapper.width() + 10;
 				spanWrapper.css('width', newWidth);
 			} else if (!headline.hasClass('type') ) {
 				//assign to .cd-words-wrapper the width of its longest word
@@ -61,7 +61,7 @@ jQuery(document).ready(function($){
 				    if (wordWidth > width) width = wordWidth;
 				});
 				headline.find('.cd-words-wrapper').css('width', width);
-			};
+			}
 
 			//trigger animation
 			setTimeout(function(){ hideWord( headline.find('.is-visible').eq(0) ) }, duration);
@@ -69,8 +69,13 @@ jQuery(document).ready(function($){
 	}
 
 	function hideWord($word) {
+
 		var nextWord = takeNext($word);
-		
+
+		// stop if there is no next word
+		if(!nextWord)
+			return;
+
 		if($word.parents('.cd-headline').hasClass('type')) {
 			var parentSpan = $word.parent('.cd-words-wrapper');
 			parentSpan.addClass('selected').removeClass('waiting');	
@@ -86,6 +91,7 @@ jQuery(document).ready(function($){
 			showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
 
 		}  else if($word.parents('.cd-headline').hasClass('clip')) {
+			console.log('clip');
 			$word.parents('.cd-words-wrapper').animate({ width : '2px' }, revealDuration, function(){
 				switchWord($word, nextWord);
 				showWord(nextWord);
@@ -98,6 +104,7 @@ jQuery(document).ready(function($){
 			setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
 
 		} else {
+			console.log('else');
 			switchWord($word, nextWord);
 			setTimeout(function(){ hideWord(nextWord) }, animationDelay);
 		}
@@ -142,7 +149,7 @@ jQuery(document).ready(function($){
 	}
 
 	function takeNext($word) {
-		return (!$word.is(':last-child')) ? $word.next() : $word.parent().children().eq(0);
+		return (!$word.is(':last-child')) ? $word.next() : false;//$word.parent().children().eq(0);
 	}
 
 	function takePrev($word) {

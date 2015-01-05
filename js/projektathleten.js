@@ -6,8 +6,9 @@ window.onload = function() {
 	
 	activateLinks();
 
-  	animateHeadline($('.cd-headline'));
-}
+	//animateHeadline($('.cd-headline'));
+
+};
 
 function initializeStage(){
 	$(".content").css("display","none");
@@ -17,11 +18,19 @@ function initializeStage(){
 	//$("#cat_aervices .content").css("display","block");
 }
 
+function resetAnimate($headLine){
+	$headLine.find('.cd-words-wrapper b')
+		.removeClass('is-hidden is-visible')
+		.filter(':eq(0)')
+		.addClass('is-visible');
+}
+
 function displayContent(id){
-	
-	
-	$(".content").css("display","none");
-	$(id+" .content").css("display","block");
+	var $cat = $(id);
+	resetAnimate($cat.find('.cd-headline'));
+	animateHeadline($cat.find('.cd-headline'));
+	$(".content").css("display", "none");
+	$cat.find(".content").css("display", "block");
 }
 
 function activateLinks(){
@@ -37,7 +46,6 @@ function activateLinks(){
 	link_kontakt.onclick = function(){
 	  displayContent("#cat_kontakt");
 	}
-  
 }
 
 
