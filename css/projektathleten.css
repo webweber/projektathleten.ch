@@ -151,6 +151,14 @@ animation: AnimationName 30s ease infinite;
 	font-size:18px;
 }
 
+.address{
+	clear:both;
+	font-family:'NHaasGroteskDSW01-25Th';
+	padding-top:35px;
+	font-size:18px;
+	color:#000;
+}
+
 .bigItems{
 	padding-right:20px;
 	float:left;
