@@ -116,7 +116,7 @@ jQuery(document).ready(function($){
 
 		}  else if($word.parents('.cd-headline').hasClass('clip')) {
 			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.innerWidth() }, revealDuration, function(){
-				setTimeout(function(){ hideWord($word) }, revealAnimationDelay); 
+				 setTimeout(function(){ hideWord($word) }, revealAnimationDelay);
 			});
 		}
 	}
@@ -156,6 +156,6 @@ jQuery(document).ready(function($){
 	}
 
 	function switchWord($oldWord, $newWord) {
-		$oldWord.removeClass('is-visible').addClass('is-hidden');
+		$oldWord.siblings().andSelf().removeClass('is-visible').addClass('is-hidden');
 		$newWord.removeClass('is-hidden').addClass('is-visible');
 	}

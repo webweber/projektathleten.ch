@@ -1,7 +1,6 @@
 // define global var
 // parse 1 time and cache for more usage
 var $body;
-
 // Wait for the page to ready first
 $(function(){
 	$body = $('body');
