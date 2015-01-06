@@ -15,7 +15,7 @@ function initializeStage(){
 }
 
 function resetAnimate($headLine){
-	$headLine.find('.cd-words-wrapper b')
+	$headLine.find('.cd-words-wrapper').width('auto').find('b')
 		.removeClass('is-hidden is-visible')
 		.filter(':eq(0)')
 		.addClass('is-visible');
@@ -23,10 +23,13 @@ function resetAnimate($headLine){
 
 function displayContent(id){
 	var $cat = $body.find('#'+ id);
-	resetAnimate($cat.find('.cd-headline'));
-	animateHeadline($cat.find('.cd-headline'));
-	$body.find('.content').css('display', 'none');
-	$cat.find('.content').css('display', 'block');
+	if($cat.find('.content').is(':hidden')){
+		$body.find('.content').css('display', 'none');
+		$cat.find('.content').css('display', 'block');
+		resetAnimate($cat.find('.cd-headline'));
+			animateHeadline($cat.find('.cd-headline'))
+
+	}
 }
 
 function activateLinks(){
@@ -34,4 +37,3 @@ function activateLinks(){
 		displayContent($(e.currentTarget).find('a').attr('name'));
 	});
 }
-

@@ -51,7 +51,7 @@ jQuery(document).ready(function($){
 			} else if (headline.hasClass('clip')){
 				var spanWrapper = headline.find('.cd-words-wrapper'),
 					newWidth = spanWrapper.width() + 10;
-				spanWrapper.css('width', newWidth);
+				//spanWrapper.css('width', newWidth);
 			} else if (!headline.hasClass('type') ) {
 				//assign to .cd-words-wrapper the width of its longest word
 				var words = headline.find('.cd-words-wrapper b'),
@@ -86,12 +86,11 @@ jQuery(document).ready(function($){
 			setTimeout(function(){ showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
 		
 		} else if($word.parents('.cd-headline').hasClass('letters')) {
-			var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
+			var bool = ($word.children('i').length >= nextWord.children('i').length);
 			hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
 			showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
 
 		}  else if($word.parents('.cd-headline').hasClass('clip')) {
-			console.log('clip');
 			$word.parents('.cd-words-wrapper').animate({ width : '2px' }, revealDuration, function(){
 				switchWord($word, nextWord);
 				showWord(nextWord);
@@ -116,7 +115,7 @@ jQuery(document).ready(function($){
 			$word.addClass('is-visible').removeClass('is-hidden');
 
 		}  else if($word.parents('.cd-headline').hasClass('clip')) {
-			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){ 
+			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.innerWidth() }, revealDuration, function(){
 				setTimeout(function(){ hideWord($word) }, revealAnimationDelay); 
 			});
 		}
