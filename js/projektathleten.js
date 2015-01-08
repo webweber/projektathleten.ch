@@ -9,7 +9,8 @@ $(function(){
 
 function initializeStage(){
 	$body.find('.content').css('display', 'none');
-	displayContent('cat_services');
+	//displayContent('cat_services');
+	displayContent('cat_projects');// for testing
 	activateLinks();
 }
 
