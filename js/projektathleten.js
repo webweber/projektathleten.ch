@@ -9,7 +9,7 @@ $(function(){
 
 function initializeStage(){
 	$body.find('.content').css('display', 'none');
-	displayContent('cat_services');
+	displayContent('cat_projects');
 	displaySubContent('subcategory');
 	activateLinks();
 }
