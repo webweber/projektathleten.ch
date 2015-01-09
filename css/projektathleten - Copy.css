@@ -27,8 +27,6 @@ font-family:'NHaasGroteskDSW01-96Blk';
 
 
  -->
- 
-
 
 body,td,th {
 	font-size:  1.6rem;
@@ -40,18 +38,11 @@ h2, h3, h5{
 	clear:both;
 }
 
-h2, h3{
+h2{
 	font-family:'NHaasGroteskDSW01-75Bd', Arial, serif;
 	font-size: 32px;
 	color:#333;
-	
-}
-h2{
 	line-height:120%;
-	font-size: 32px;
-}
-h3{
-	font-size: 24px;
 }
 
 .invisible{
@@ -85,7 +76,7 @@ a:active {}
 .main{
 	font-size: 18px;
 	font-family: 'NeueHaasGroteskDisp W01', Arial, serif;
-	width:850px;
+	width:1000px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align:left;
@@ -177,21 +168,17 @@ a:active {}
 	color: #8dc63f;
 }
 
-.subcategory h2:not(.h2_top){
-	padding-top:45px;
-}
-
-.h2_top{
-	padding-top:-45px;
+.subcategory h2{
+	
 }
 
 .subcategory h3{
-	padding-top:30px;
+	
 }
 
-.subcategory h5,
-.listHeader{
+.subcategory h5{
 	
+	padding-top:25px;
 	padding-bottom:12px;
 	font-size: 14px;
 	font-family:'NHaasGroteskDSW01-75Bd';
@@ -199,13 +186,6 @@ a:active {}
 	text-transform: uppercase;
 	letter-spacing: 3px;
 
-}
-.listHeader{
-	padding-right:15px;
-}
-
-.unorderedList{
-	padding-top:20px;
 }
 
 .featured{
@@ -242,11 +222,4 @@ a:active {}
 	clear:both;
 	padding-top:55px;
 	color:#000;
-}
-
-.quote{
-	
-	font-family:'NHaasGroteskDSW01-46LtI';
-	font-size:24px;
-	line-height:130%;
 }
