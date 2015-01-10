@@ -11,8 +11,10 @@ $(function(){
 	$body.on('click', '.naviItem',function(e){
 		e.preventDefault();
 		displayContent($(e.currentTarget).find('a').attr('name'));
-			
+		//displaySubContent($(e.currentTarget).find('a').attr('name'));
 		var href = $(this).find('a').attr('href');
+		//targetTitle = $(this).find('a').attr('title');
+		//$(this).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
 
 		console.log(href);
 		// HISTORY.PUSHSTATE
@@ -25,14 +27,14 @@ $(function(){
 
 function initializeStage(){
 	$body.find('.content').css('display', 'none');
-	displayContent('firma');
-	displayContent('firma_martinka');
+	displayContent('cat_projects');
 	//displaySubContent('subcategory');
 }
 
 function activeLink(path){
-	$body.find('a').removeClass('active').end()
-		.find('a[name="' + path + '"]').addClass('active');
+	$body.
+		find('a[name="' + path + '"]').addClass('active')
+		.parent().siblings().find('a').removeClass('active');
 }
 
 function displayContent(path){
