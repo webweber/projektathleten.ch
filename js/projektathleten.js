@@ -28,7 +28,6 @@ $(function(){
 function initializeStage(){
 	$body.find('.content').css('display', 'none');
 	displayContent('cat_projects');
-	//displaySubContent('subcategory');
 }
 
 function activeLink(path){
