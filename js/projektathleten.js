@@ -24,7 +24,7 @@ $(function(){
 function initializeStage(){
 	$body.find('.content').css('display', 'none');
 	displayContent('cat_projects');
-	pageRefresh()
+
 
 }
 
@@ -54,20 +54,6 @@ function resetAnimate($headLine){
 		.filter(':eq(0)')
 		.addClass('is-visible');
 }
-function pageRefresh(){
-	 $body.find('.content').css('display', 'block')
-
-}
-
-/*
-function displaySubContent(id){
-	var $subCat = $body.find('#'+id);
-	if($subCat.is(':hidden')){
-		$body.find('.subcategory').css('display','none');
-		$subCat.css('display','block');
-	}
-}
-*/
 
 
 

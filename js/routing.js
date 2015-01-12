@@ -1,4 +1,4 @@
-console.log($(function () {
+$(function () {
     var $body;
 
     function switchPage() {
@@ -13,5 +13,7 @@ console.log($(function () {
         }
     }
 
+    switchPage();
     window.onpopstate = switchPage
-}));
+
+});
