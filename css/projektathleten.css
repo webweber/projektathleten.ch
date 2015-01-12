@@ -2,7 +2,7 @@
 green: #8dc63f
 inverted green = purple: #7239c0
 
-font-family:'NeueHaasGroteskText W01';
+				 font-family:'NeueHaasGroteskText W01';
 font-family:'NHaasGroteskTXW01-56It';
 font-family:'NHaasGroteskTXW01-65Md';
 font-family:'NHaasGroteskTXW01-66MdI';
@@ -26,14 +26,14 @@ font-family:'NHaasGroteskDSW01-95Blk';
 font-family:'NHaasGroteskDSW01-96Blk';
 
 
- -->
- 
+-->
+
 
 
 body,td,th {
 	font-size:  1.6rem;
 	background-color: #cccccc;
-	
+
 }
 
 h2, h3, h5{
@@ -44,7 +44,7 @@ h2, h3{
 	font-family:'NHaasGroteskDSW01-75Bd', Arial, serif;
 	font-size: 32px;
 	color:#333;
-	
+
 }
 h2{
 	line-height:120%;
@@ -66,13 +66,13 @@ a:link {
 }
 
 a:visited {
-  
+
 }
 
 a:hover,  .main .naviMainItem a:hover, .main .naviMainItem a.active {
 	text-decoration: none;
 	padding-bottom:5px;
-	border-bottom: 5px solid #7239c0; 
+	border-bottom: 5px solid #7239c0;
 	/*cursor: url(../assets/myCursor.png), auto; */
 
 }
@@ -94,19 +94,19 @@ a:active {}
 
 #navi_main{
 	clear:both;¨
-	line-height: 1;
+line-height: 1;
 	padding-top:40px;
 }
 .naviMainItem{
 	float: left;
 	font-size: 14px;
 	font-family:'NHaasGroteskDSW01-75Bd';
-	
+
 	text-transform: uppercase;
 	padding-top:10px;
 	padding-bottom:5px;
 	letter-spacing: 3px;
-	
+
 }
 
 .firstMainNaviItem{
@@ -136,14 +136,14 @@ a:active {}
 	padding-top:35px;
 	padding-bottom:20px;
 	font-family:'NHaasGroteskDSW01-75Bd', Arial, serif;
-	font-size: 32px;
+	font-size: 28px;
 	color:#333;
 }
 
 .names{
 	padding-right:20px;
 	float:left;
-	font-size:32px;
+	font-size:28px;
 	font-family:'NHaasGroteskDSW01-25Th';
 	color:#000;
 }
@@ -163,10 +163,16 @@ a:active {}
 .bigItems{
 	padding-right:20px;
 	float:left;
-	font-size:32px;
+	font-size:28px;
 	font-family:'NHaasGroteskDSW01-25Th';
 	line-height: 60px;
 	color: #000000;
+}
+
+.aktuell2{
+	clear:both;
+
+	padding-top:0px;
 }
 
 .category{
@@ -177,8 +183,8 @@ a:active {}
 	color: #8dc63f;
 }
 
-.subcategory h2:not(.h2_top){
-	padding-top:45px;
+#firma .subcategory h2:not(.top){
+	padding-top:45px;/**/
 }
 
 .h2_top{
@@ -191,7 +197,7 @@ a:active {}
 
 .subcategory h5,
 .listHeader{
-	
+
 	padding-bottom:12px;
 	font-size: 14px;
 	font-family:'NHaasGroteskDSW01-75Bd';
@@ -208,34 +214,52 @@ a:active {}
 	padding-top:20px;
 }
 
-.featured{
+.aktuellHolder{
+	padding-top:50px;
+	clear:both;
+}
+
+.featured,
+.aktuell{
+	clear:both;
 	padding-top:3px;
 	padding-bottom:3px;
 	padding-left:6px;
 	padding-right:3px;
-	
+
 	font-size: 14px;
 	font-family:'NHaasGroteskDSW01-75Bd';
 	color:#ffffff;
 	text-transform: uppercase;
 	letter-spacing: 3px;
+}
+.aktuell{
+	float:left;
+}
+
+.featured{
 	background-color:  #8dc63f;
 }
 
+.aktuell{
+	background-color: #7239c0;
+}
+
+
 .unorderedList{
-	
+
 }
 
 .listitem{
 	line-height:25px;
 }
 
-.borderLeft, 
+.borderLeft,
 .listitem{
-	 border-left: 5px solid  #8dc63f;
-	 padding-left: 20px;
-	 padding-right: 20px;
-	
+	border-left: 5px solid  #8dc63f;
+	padding-left: 20px;
+	padding-right: 20px;
+
 }
 
 .subcategories{
@@ -245,8 +269,12 @@ a:active {}
 }
 
 .quote{
-	
+
 	font-family:'NHaasGroteskDSW01-46LtI';
 	font-size:24px;
 	line-height:130%;
+}
+.navi_sub span a.active{
+	border-bottom: 5px solid #7239c0 !important;
+
 }

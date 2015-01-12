@@ -31,7 +31,7 @@ font-family:'NHaasGroteskDSW01-96Blk';
 body,td,th {
 	font-size:  1.6rem;
 	background-color: #cccccc;
-	
+
 }
 
 h2, h3, h5{
@@ -57,13 +57,13 @@ a:link {
 }
 
 a:visited {
-  
+
 }
 
 a:hover,  .main .naviMainItem a:hover, .main .naviMainItem a.active {
 	text-decoration: none;
 	padding-bottom:5px;
-	border-bottom: 5px solid #7239c0; 
+	border-bottom: 5px solid #7239c0;
 	/*cursor: url(../assets/myCursor.png), auto; */
 
 }
@@ -92,12 +92,12 @@ a:active {}
 	float: left;
 	font-size: 14px;
 	font-family:'NHaasGroteskDSW01-75Bd';
-	
+
 	text-transform: uppercase;
 	padding-top:10px;
 	padding-bottom:5px;
 	letter-spacing: 3px;
-	
+
 }
 
 .firstMainNaviItem{
@@ -169,15 +169,15 @@ a:active {}
 }
 
 .subcategory h2{
-	
+
 }
 
 .subcategory h3{
-	
+
 }
 
 .subcategory h5{
-	
+
 	padding-top:25px;
 	padding-bottom:12px;
 	font-size: 14px;
@@ -193,7 +193,7 @@ a:active {}
 	padding-bottom:3px;
 	padding-left:6px;
 	padding-right:3px;
-	
+
 	font-size: 14px;
 	font-family:'NHaasGroteskDSW01-75Bd';
 	color:#ffffff;
@@ -203,23 +203,27 @@ a:active {}
 }
 
 .unorderedList{
-	
+
 }
 
 .listitem{
 	line-height:25px;
 }
 
-.borderLeft, 
+.borderLeft,
 .listitem{
 	 border-left: 5px solid  #8dc63f;
 	 padding-left: 20px;
 	 padding-right: 20px;
-	
+
 }
 
 .subcategories{
 	clear:both;
 	padding-top:55px;
 	color:#000;
+}
+.navi_sub span a.active{
+	border-bottom: 5px solid #7239c0 !important;
+
 }

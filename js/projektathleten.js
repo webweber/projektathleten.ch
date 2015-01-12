@@ -7,19 +7,15 @@ $(function(){
 	// parse 1 time and cache for more usage
 	$body = $('body');
 	initializeStage();
-
 	$body.on('click', '.naviItem',function(e){
 		e.preventDefault();
 		displayContent($(e.currentTarget).find('a').attr('name'));
-		//displaySubContent($(e.currentTarget).find('a').attr('name'));
 		var href = $(this).find('a').attr('href');
-		//targetTitle = $(this).find('a').attr('title');
-		//$(this).find('a').addClass('active').parent().siblings().find('a').removeClass('active');
-
 		console.log(href);
 		// HISTORY.PUSHSTATE
 		history.pushState('', 'New URL: ' + href, href);
 		e.preventDefault();
+		console.log(href)
 
 	});
 });
@@ -28,7 +24,8 @@ $(function(){
 function initializeStage(){
 	$body.find('.content').css('display', 'none');
 	displayContent('cat_projects');
-	//displaySubContent('subcategory');
+	pageRefresh()
+
 }
 
 function activeLink(path){
@@ -56,6 +53,10 @@ function resetAnimate($headLine){
 		.removeClass('is-hidden is-visible')
 		.filter(':eq(0)')
 		.addClass('is-visible');
+}
+function pageRefresh(){
+	 $body.find('.content').css('display', 'block')
+
 }
 
 /*
