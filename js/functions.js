@@ -32,8 +32,17 @@ function resetAnimate($headLine){
 }
 
 function switchPage($body) {
+    $body = $body.type ? $('body') : $body;
     var path = location.pathname,
         pathArray = path.split('/');
+
+    if(pathArray.indexOf('projekte') != -1){
+        if(pathArray[pathArray.indexOf('projekte') + 1]){
+            $body.find('.aktuellHolder').hide();
+        }else{
+            $body.find('.aktuellHolder').show();
+        }
+    }
 
     if(!pathArray[pathArray.length - 1]){
         location.pathname = location.pathname += 'projekte';
@@ -42,7 +51,7 @@ function switchPage($body) {
 
     for (var i = 0; pathArray.length > i; i++) {
         if (pathArray[i]) {
-            displayContent(pathArray[i], $body.type ? $('body') : $body);
+            displayContent(pathArray[i], $body);
         }
     }
 }
