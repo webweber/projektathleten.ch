@@ -45,7 +45,7 @@ body{
 	height: 100%;
 	position: fixed;
 	background-color: #8dc63f;
-	background-position: center left;
+	background-position: 0% 20%;
 	background-repeat: no-repeat;
 	right: 0;
 	z-index: 1;
