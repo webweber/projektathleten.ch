@@ -11,7 +11,8 @@ function activeLink(path, $body){
 }
 
 function displayContent(path, $body){
-    var $page = $body.find('#'+ path);
+    var newPath = path || 'projekte';
+    var $page = $body.find('#'+ newPath);
     if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
         $body.find('.content').css('display', 'none');
         $page.find('.content').first().css('display', 'block');
@@ -21,7 +22,8 @@ function displayContent(path, $body){
         $body.find('.subcategory .content').css('display', 'none');
         $page.find('.content').first().css('display', 'block');
     }
-    activeLink(path, $body);
+    if(path)
+        activeLink(path, $body);
 }
 
 function resetAnimate($headLine){
@@ -36,17 +38,18 @@ function switchPage($body) {
     var path = location.pathname,
         pathArray = path.split('/');
 
+    if(!pathArray[pathArray.length - 1]){
+        //location.pathname = location.pathname += 'projekte';
+        displayContent('', $body);
+        return;
+    }
+
     if(pathArray.indexOf('projekte') != -1){
         if(pathArray[pathArray.indexOf('projekte') + 1]){
             $body.find('.aktuellHolder').hide();
         }else{
             $body.find('.aktuellHolder').show();
         }
-    }
-
-    if(!pathArray[pathArray.length - 1]){
-        location.pathname = location.pathname += 'projekte';
-        return;
     }
 
     for (var i = 0; pathArray.length > i; i++) {
