@@ -10,20 +10,63 @@ function activeLink(path, $body){
         .parent().siblings().find('a').removeClass('active');
 }
 
+function changeCoverImages($body){
+    var image,
+        images = [
+        'Badminton_ at the 2012 Summer Olympics.png',
+        'Bowling_ at the 2012 Summer Olympics.png',
+        'Tug_Of_War_Pictogram_clip_art_hight.png',
+        'Weightlifting_ at the 2012 Summer Olympics.png'
+    ];
+
+    image = images[Math.floor(Math.random() * images.length)];
+
+    $body.find('#cover').css({
+        backgroundImage: 'url("assets/curtain_graphics/'+ image +'")'
+    });
+}
+
 function displayContent(path, $body){
     var newPath = path || 'projekte';
     var $page = $body.find('#'+ newPath);
-    if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
-        $body.find('.content').css('display', 'none');
-        $page.find('.content').first().css('display', 'block');
-        resetAnimate($page.find('.cd-headline'));
-        animateHeadline($page.find('.cd-headline'));
-    }else{
+
+    if(!$page.find('.content').first().is(':hidden'))
+        return;
+
+    if($page.hasClass('subcategory')){
         $body.find('.subcategory .content').css('display', 'none');
         $page.find('.content').first().css('display', 'block');
+        if(path)
+            activeLink(path, $body);
+    }else{
+
+        changeCoverImages($body);
+
+        $body.find('#cover').animate({
+            width: $body.width() - $body.find('.main').offset().left
+        }, 500, function(){
+
+            if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
+                $body.find('.content').css('display', 'none');
+                $page.find('.content').first().css('display', 'block');
+                resetAnimate($page.find('.cd-headline'));
+                animateHeadline($page.find('.cd-headline'));
+            }
+
+            if(path)
+                activeLink(path, $body);
+
+            setTimeout(function(){
+                $body.find('#cover').animate({
+                    width: 5
+                }, 500, function(){
+
+                });
+            }, 200);
+
+        });
+
     }
-    if(path)
-        activeLink(path, $body);
 }
 
 function resetAnimate($headLine){
