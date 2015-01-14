@@ -55,13 +55,12 @@ h2, h3, h5{
 
 h2, h3{
 	font-family:'NHaasGroteskDSW01-75Bd', Arial, serif;
-	font-size: 32px;
 	color:#333;
 
 }
 h2{
 	line-height:120%;
-	font-size: 32px;
+	font-size: 28px;
 }
 h3{
 	font-size: 24px;
@@ -184,6 +183,7 @@ line-height: 1;
 	font-family:'NHaasGroteskDSW01-25Th';
 	line-height: 60px;
 	color: #000000;
+	letter-spacing:0px; 
 }
 
 .aktuell2{
@@ -196,7 +196,7 @@ line-height: 1;
 	clear:both;
 	color:#000;
 	line-height:25px;
-	letter-spacing:1.2px; 
+	letter-spacing:0.8px; 
 }
 
 .category a{
