@@ -2,10 +2,6 @@ function initializeStage($body){
     $body.find('.content').css('display', 'none');
     switchPage($body);
     window.onpopstate = switchPage;
-   /* $('html, body').css({
-        'overflow': 'hidden',
-        'height': '100%'
-    })*/
 }
 
 function activeLink(path, $body){
