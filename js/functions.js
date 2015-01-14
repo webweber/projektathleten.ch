@@ -2,6 +2,10 @@ function initializeStage($body){
     $body.find('.content').css('display', 'none');
     switchPage($body);
     window.onpopstate = switchPage;
+   /* $('html, body').css({
+        'overflow': 'hidden',
+        'height': '100%'
+    })*/
 }
 
 function activeLink(path, $body){
@@ -38,37 +42,33 @@ function displayContent(path, $body){
         $page.find('.content').first().css('display', 'block');
         if(path)
             activeLink(path, $body);
-    }else{
+     }else{
 
         changeCoverImages($body);
 
-        $body.find('#cover').animate({
+        $body.find('#cover')
+            .animate({
             width: $body.width() - $body.find('.main').offset().left
-        }, 500, function(){
-
+        }, 500, 'easeOutCubic',  function(){
             if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
                 $body.find('.content').css('display', 'none');
                 $page.find('.content').first().css('display', 'block');
                 resetAnimate($page.find('.cd-headline'));
                 animateHeadline($page.find('.cd-headline'));
             }
-
             if(path)
                 activeLink(path, $body);
 
             setTimeout(function(){
                 $body.find('#cover').animate({
-                    width: 5
-                }, 500, function(){
+                    width: 10
+                }, 500,'easeInCubic',  function(){
+                })
 
-                });
-            }, 200);
-
-        });
-
+            },200)
+        })
     }
 }
-
 function resetAnimate($headLine){
     $headLine.find('.cd-words-wrapper').width('auto').find('b')
         .removeClass('is-hidden is-visible')
