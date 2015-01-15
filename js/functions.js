@@ -92,6 +92,7 @@ App.prototype.displayContent = function(path){
     // Show intro if it is first time
     if(this.isFirstTime){
         _self.$body.find('#coverLoad').width(coverWidth);
+        _self.$body.find('.main').css('visibility', 'visible');
         // Display page
         _self.showPage($page);
         // Animate Intro to right
