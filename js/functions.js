@@ -2,6 +2,8 @@
 var App = function(options){
     // copy all options to this Object
     $.extend(this, options);
+    //Default Properties
+    this.isFirstTime = true;
     this.initializeStage();
 };
 
@@ -18,8 +20,7 @@ App.prototype.switchPage = function(e){
         pathArray = path.split('/');
 
     if(!pathArray[pathArray.length - 1]){
-        //location.pathname = location.pathname += 'projekte';
-        displayContent('', _self.$body);
+        _self.displayContent('', _self.$body);
         return;
     }
 
@@ -60,13 +61,39 @@ App.prototype.changeCoverImages = function(path){
     });
 };
 
+App.prototype.showPage = function($page){
+    if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
+        this.$body.find('.content').css('display', 'none');
+        $page.find('.content').first().css('display', 'block');
+        this.resetAnimate($page.find('.cd-headline'));
+        animateHeadline($page.find('.cd-headline'));
+    }
+};
+
 App.prototype.displayContent = function(path){
     var _self = this,
-        newPath = path || 'projekte';
-    var $page = this.$body.find('#'+ newPath);
+        coverWidth = this.$body.width() - this.$body.find('.main').offset().left,
+        newPath = path || 'projekte',
+        $page = this.$body.find('#'+ newPath);
 
+    // don't animate if we already on same page
     if(!$page.find('.content').first().is(':hidden'))
         return;
+
+    // Show intro if it is first time
+    if(this.isFirstTime){
+        _self.$body.find('#coverLoad').width(coverWidth);
+        // Display page
+        _self.showPage($page);
+        // Animate Intro to right
+        setTimeout(function(){
+            _self.$body.find('#coverLoad').animate({
+                width: 10
+            }, 500,'easeInCubic')
+        }, 1000);
+        this.isFirstTime = false;
+        return;
+    }
 
     if($page.hasClass('subcategory')){
         this.$body.find('.subcategory .content').css('display', 'none');
@@ -79,15 +106,11 @@ App.prototype.displayContent = function(path){
 
         this.$body.find('#cover')
             .animate({
-                width: this.$body.width() - this.$body.find('.main').offset().left
+                width: coverWidth
             }, 500, 'easeOutCubic',  function(){
-                if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
-                    _self.$body.find('.content').css('display', 'none');
-                    $page.find('.content').first().css('display', 'block');
-                    _self.resetAnimate($page.find('.cd-headline'));
-                    animateHeadline($page.find('.cd-headline'));
-                }
-                //
+                // Show requested page
+                _self.showPage($page);
+
                 if(path)
                     _self.activeLink(path);
 

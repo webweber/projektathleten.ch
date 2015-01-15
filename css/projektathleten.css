@@ -39,7 +39,7 @@ html{
 body{
 	height: 100%;
 }
-#cover{
+#cover, #coverLoad{
 	width: 5px;
 	height: 100%;
 	position: fixed;
@@ -48,6 +48,10 @@ body{
 	background-repeat: no-repeat;
 	right: 0;
 	z-index: 1;
+}
+
+#coverLoad {
+	background-image: url("../assets/curtain_graphics/intro.png");
 }
 
 h2, h3, h5{
