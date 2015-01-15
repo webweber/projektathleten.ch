@@ -65,11 +65,16 @@ App.prototype.showPage = function($page){
     if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
         this.$body.find('.content').css('display', 'none');
         $page.find('.content').first().css('display', 'block');
-        //Remove active class form subcategories link when active main cat
-        $page.find('.content .navi_sub a').removeClass('active');
+        this.resetSubCategory($page);
         this.resetAnimate($page.find('.cd-headline'));
         animateHeadline($page.find('.cd-headline'));
     }
+};
+
+App.prototype.resetSubCategory = function($page){
+    //Remove active class form subcategories link when active main cat
+    $page.find('.content .navi_sub a').removeClass('active');
+    $page.find('.content .subcategories .content').hide();
 };
 
 App.prototype.displayContent = function(path){
@@ -79,8 +84,10 @@ App.prototype.displayContent = function(path){
         $page = this.$body.find('#'+ newPath);
 
     // don't animate if we already on same page
-    if(!$page.find('.content').first().is(':hidden'))
+    if(!$page.find('.content').first().is(':hidden')){
+        this.resetSubCategory($page);
         return;
+    }
 
     // Show intro if it is first time
     if(this.isFirstTime){
