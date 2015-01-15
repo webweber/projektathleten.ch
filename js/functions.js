@@ -106,7 +106,8 @@ App.prototype.displayContent = function(path){
 
     if($page.hasClass('subcategory')){
         this.$body.find('.subcategory .content').css('display', 'none');
-        $page.find('.content').first().css('display', 'block');
+        $page.find('.content').first().fadeIn(250, 'easeOutCubic');
+        //$page.find('.content').first().css('display', 'block');
         if(path)
             this.activeLink(path);
     }else{
