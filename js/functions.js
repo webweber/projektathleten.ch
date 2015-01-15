@@ -65,6 +65,8 @@ App.prototype.showPage = function($page){
     if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
         this.$body.find('.content').css('display', 'none');
         $page.find('.content').first().css('display', 'block');
+        //Remove active class form subcategories link when active main cat
+        $page.find('.content .navi_sub a').removeClass('active');
         this.resetAnimate($page.find('.cd-headline'));
         animateHeadline($page.find('.cd-headline'));
     }
