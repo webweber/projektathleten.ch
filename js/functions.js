@@ -72,7 +72,7 @@ App.prototype.showPage = function($page){
 
 App.prototype.displayContent = function(path){
     var _self = this,
-        coverWidth = this.$body.width() - this.$body.find('.main').offset().left,
+        coverWidth = this.$body.width() - (this.$body.find('.main').offset().left - 15),
         newPath = path || 'projekte',
         $page = this.$body.find('#'+ newPath);
 
@@ -88,7 +88,7 @@ App.prototype.displayContent = function(path){
         // Animate Intro to right
         setTimeout(function(){
             _self.$body.find('#coverLoad').animate({
-                width: 10
+                width: 0
             }, 500,'easeInCubic')
         }, 1000);
         this.isFirstTime = false;
@@ -116,7 +116,7 @@ App.prototype.displayContent = function(path){
 
                 setTimeout(function(){
                     _self.$body.find('#cover').animate({
-                        width: 10
+                        width: 5
                     }, 500,'easeInCubic')
 
                 }, 200)
