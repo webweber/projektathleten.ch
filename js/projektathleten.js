@@ -4,7 +4,9 @@ $(function(){
 	var $body = $('body');
 
 	// Initialize Website
-	initializeStage($body);
+	var app = new App({
+		$body: $body
+	});
 
 	// Bind Click on all nav items
 	$body.on('click', '.naviItem', function(e){
@@ -12,7 +14,7 @@ $(function(){
 		var href = $(this).find('a').attr('href');
 		// HISTORY.PUSHSTATE
 		history.pushState('', 'New URL: ' + href, href);
-		switchPage($body);
+		app.switchPage();
 	});
 
 });
