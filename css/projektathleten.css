@@ -39,6 +39,7 @@ html{
 body{
 	height: 100%;
 }
+
 #cover, #coverLoad{
 	width: 5px;
 	height: 100%;
@@ -207,7 +208,9 @@ line-height: 1;
 .category a{
 	color: #8dc63f;
 }
-
+.subcategories .content{
+	display: block;
+}
 #firma .subcategory h2:not(.top){
 	padding-top:45px;/**/
 }
