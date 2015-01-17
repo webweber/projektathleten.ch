@@ -1,10 +1,13 @@
 // Constructor Function
 var App = function(options){
+    var _self = this;
     // copy all options to this Object
     $.extend(this, options);
     //Default Properties
-    this.isFirstTime = true;
-    this.initializeStage();
+    _self.isFirstTime = true;
+    _self.preLoader(function(){
+        _self.initializeStage();
+    });
 };
 
 App.prototype.initializeStage = function(){
@@ -45,20 +48,45 @@ App.prototype.activeLink = function(path){
         .parent().siblings().find('a').removeClass('active');
 };
 
-App.prototype.changeCoverImages = function(path){
-    var image,
-        images = [
-            'Badminton_ at the 2012 Summer Olympics.png',
-            'Bowling_ at the 2012 Summer Olympics.png',
-            'Tug_Of_War_Pictogram_clip_art_hight.png',
-            'Weightlifting_ at the 2012 Summer Olympics.png'
-        ];
+App.prototype.getCoverImages = function(){
+    return [
+        'Badminton_ at the 2012 Summer Olympics.png',
+        'Bowling_ at the 2012 Summer Olympics.png',
+        'Tug_Of_War_Pictogram_clip_art_hight.png',
+        'Weightlifting_ at the 2012 Summer Olympics.png'
+    ];
+};
 
-    image = images[Math.floor(Math.random() * images.length)];
+App.prototype.changeCoverImages = function(path){
+    var image;
+
+    image = this.getCoverImages()[Math.floor(Math.random() * this.getCoverImages().length)];
 
     this.$body.find('#cover').css({
         backgroundImage: 'url("assets/curtain_graphics/'+ image +'")'
     });
+};
+
+App.prototype.preLoader = function(callback){
+    var _self = this,
+        imageNames = _self.getCoverImages(),
+        images = [],
+        count = 0,
+        loadCheck;
+    imageNames.push('intro.png');
+    for(var i = 0; imageNames.length > i ; i++){
+        images[i] = new Image();
+        images[i].src = 'assets/curtain_graphics/' + imageNames[i];
+        images[i].onload = function(){
+            count ++
+        }
+    }
+    loadCheck = setInterval(function(){
+        if(count == imageNames.length){
+            callback();
+            clearInterval(loadCheck);
+        }
+    }, 100);
 };
 
 App.prototype.showPage = function($page){
@@ -141,3 +169,4 @@ App.prototype.resetAnimate = function($headLine){
         .filter(':eq(0)')
         .addClass('is-visible');
 };
+
