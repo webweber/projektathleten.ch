@@ -22,43 +22,26 @@ $(function(){
 
 	$body.on('click', '.swipe_toggle', function(){
 		if($(this).hasClass('borderLeft')){
-			if(isReversed){
-				$body.find('.swipe_toggle:eq(1)').animate({
-					transform: 'translateX(0)'
-				}, time, function(){
-					$(this).addClass('swipe_index')
-				});
 
+			$body.find('.swipe_toggle:eq(0)').animate({
+				transform: isReversed ? 'translateX(0)' : 'translateX(215px)'
+			}, time, function(){
+				$(this)[isReversed ? 'removeClass' : 'addClass']('swipe_index');
+			});
+
+			$body.find('.swipe_toggle:eq(1)').animate({
+				transform: isReversed ? 'translateX(0)' : 'translateX(-215px)'
+			}, time, function(){
+				$(this)[isReversed ? 'addClass' : 'removeClass']('swipe_index');
 				setTimeout(function(){
-					$body.find('.swipe_toggle:eq(1)').addClass('borderLeft');
-					$body.find('.swipe_toggle:eq(0)').removeClass('borderLeft');
-				}, time/2);
+					isReversed = !isReversed;
+				}, 20);
+			});
 
-				$body.find('.swipe_toggle:eq(0)').animate({
-					transform: 'translateX(0)'
-				}, time, function(){
-					$(this).removeClass('swipe_index')
-				});
-				isReversed = false;
-			}else{
-				$body.find('.swipe_toggle:eq(0)').animate({
-					transform: 'translateX(215px)'
-				}, time, function(){
-					$(this).addClass('swipe_index')
-				});
-
-				setTimeout(function(){
-					$body.find('.swipe_toggle:eq(0)').addClass('borderLeft');
-					$body.find('.swipe_toggle:eq(1)').removeClass('borderLeft');
-				}, time/2);
-
-				$body.find('.swipe_toggle:eq(1)').animate({
-					transform: 'translateX(-215px)'
-				}, time, function(){
-					$(this).removeClass('swipe_index')
-				});
-				isReversed = true;
-			}
+			setTimeout(function(){
+				$body.find('.swipe_toggle:eq(1)')[isReversed ? 'addClass' : 'removeClass']('borderLeft');
+				$body.find('.swipe_toggle:eq(0)')[isReversed ? 'removeClass' : 'addClass']('borderLeft');
+			}, time/2);
 		}
 	});
 
