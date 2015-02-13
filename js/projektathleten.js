@@ -17,6 +17,7 @@ $(function(){
 		app.switchPage();
 	});
 
+	// Swipe images
 	var isReversed = false,
 		time = 500;
 
@@ -43,6 +44,13 @@ $(function(){
 				$body.find('.swipe_toggle:eq(0)')[isReversed ? 'removeClass' : 'addClass']('borderLeft');
 			}, time/2);
 		}
+	});
+
+	// Hide all items except self
+	$body.find('.listHeader').siblings().hide();
+	$body.on('click', '.listHeader', function(){
+		$body.find('.listHeader').siblings().hide();
+		$(this).siblings().show();
 	});
 
 });
