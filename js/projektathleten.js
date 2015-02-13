@@ -17,4 +17,49 @@ $(function(){
 		app.switchPage();
 	});
 
+	var isReversed = false,
+		time = 500;
+
+	$body.on('click', '.swipe_toggle', function(){
+		if($(this).hasClass('borderLeft')){
+			if(isReversed){
+				$body.find('.swipe_toggle:eq(1)').animate({
+					transform: 'translateX(0)'
+				}, time, function(){
+					$(this).addClass('swipe_index')
+				});
+
+				setTimeout(function(){
+					$body.find('.swipe_toggle:eq(1)').addClass('borderLeft');
+					$body.find('.swipe_toggle:eq(0)').removeClass('borderLeft');
+				}, time/2);
+
+				$body.find('.swipe_toggle:eq(0)').animate({
+					transform: 'translateX(0)'
+				}, time, function(){
+					$(this).removeClass('swipe_index')
+				});
+				isReversed = false;
+			}else{
+				$body.find('.swipe_toggle:eq(0)').animate({
+					transform: 'translateX(215px)'
+				}, time, function(){
+					$(this).addClass('swipe_index')
+				});
+
+				setTimeout(function(){
+					$body.find('.swipe_toggle:eq(0)').addClass('borderLeft');
+					$body.find('.swipe_toggle:eq(1)').removeClass('borderLeft');
+				}, time/2);
+
+				$body.find('.swipe_toggle:eq(1)').animate({
+					transform: 'translateX(-215px)'
+				}, time, function(){
+					$(this).removeClass('swipe_index')
+				});
+				isReversed = true;
+			}
+		}
+	});
+
 });
