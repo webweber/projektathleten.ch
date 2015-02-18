@@ -76,7 +76,7 @@ h3{
 a:link {
 	text-decoration: none;
 	padding-bottom:5px;
-	border-bottom: 1px solid #999999;
+	/*border-bottom: 1px solid #999999;*/
 }
 
 a:visited {
@@ -119,6 +119,7 @@ line-height: 1;
 	text-transform: uppercase;
 	padding-top:10px;
 	padding-bottom:5px;
+	
 	letter-spacing: 3px;
 
 }
@@ -131,12 +132,12 @@ line-height: 1;
 	color: #8dc63f;
 	text-decoration: none;
 	padding-bottom:10px;
-	border-bottom: 1px solid #999999;
+	/*border-bottom: 1px solid #999999;*/
 	/*cursor: url(../assets/myCursor.png), auto;*/
 }
 
 .main, .main a, .category .bigItems a{
-	color:#000;
+	/*color:#333;*/
 }
 .main a:hover, .main a.active{
 	color: #7239c0;
@@ -148,7 +149,7 @@ line-height: 1;
 .claim{
 	clear:both;
 	padding-top:35px;
-	padding-bottom:20px;
+	padding-bottom:40px;
 	font-family:'NHaasGroteskDSW01-75Bd', Arial, serif;
 	font-size: 28px;
 	color:#333;
@@ -159,14 +160,14 @@ line-height: 1;
 	float:left;
 	font-size:28px;
 	font-family:'NHaasGroteskDSW01-25Th';
-	color:#000;
+	color:#333;
 }
 
 .names_contactInfo,
 .readMore{
 	letter-spacing: 1.5px;
 	font-family:'NHaasGroteskDSW01-25Th';
-	color:#000;
+	color:#333;
 	font-size:20px;
 }
 .readMore{
@@ -174,33 +175,47 @@ line-height: 1;
 	clear:both;
 }
 
+.more{
+	display:none;
+}
+
 .address{
 	clear:both;
 	font-family:'NHaasGroteskDSW01-25Th';
 	padding-top:35px;
 	font-size:18px;
-	color:#000;
+	color:#333;
 }
 
 .bigItems{
+	
 	padding-right:20px;
 	float:left;
 	font-size:28px;
 	font-family:'NHaasGroteskDSW01-25Th';
-	line-height: 60px;
-	color: #000000;
+	line-height: 30px;/* determines height of vertical separator line*/
+	color: #333;
 	letter-spacing:0px; 
 }
 
 .aktuell2{
 	clear:both;
-
 	padding-top:0px;
+	font-size: 18px;
+	font-family: 'NeueHaasGroteskDisp W01', Arial, serif;
+	color:#333;
+}
+
+.aktuell2 .date{
+	font-size:14px;
+	color: #333;
+	letter-spacing:2px;
+	padding-top:20px;
 }
 
 .category{
 	clear:both;
-	color:#000;
+	color:#333;
 	line-height:25px;
 	letter-spacing:0.8px; 
 }
@@ -274,26 +289,35 @@ line-height: 1;
 }
 
 
-.unorderedList{
 
-}
 
 .listitem{
+	display:list-item;
+	list-style-position:outside;
+	/* does not work?
+	list-style-image: url(assets/images/arrow_outline.png);
+	*/
+	
+	
 	line-height:25px;
+	
+	
 }
 
-.borderLeft,
-.listitem{
+.borderLeft{
+	
 	border-left: 5px solid  #8dc63f;
 	padding-left: 20px;
 	padding-right: 20px;
+	/*
+	*/
 
 }
 
 .subcategories{
 	clear:both;
 	padding-top:55px;
-	color:#000;
+	color:#333;
 }
 
 .quote{
@@ -301,7 +325,7 @@ line-height: 1;
 	font-family:'NHaasGroteskDSW01-46LtI';
 	font-size:24px;
 	line-height:130%;
-	color:#000;
+	color:#333;
 }
 
 .bigQuotes{

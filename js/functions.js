@@ -1,3 +1,6 @@
+$speedUpFactor = 10;// speed up animations during development. 
+                    // For deployment set value to 1!
+
 // Constructor Function
 var App = function(options){
     var _self = this;
@@ -127,8 +130,8 @@ App.prototype.displayContent = function(path){
         setTimeout(function(){
             _self.$body.find('#coverLoad').animate({
                 width: 0
-            }, 500,'easeInCubic')
-        }, 1000);
+            }, 500/$speedUpFactor,'easeInCubic')
+        }, 1000/ $speedUpFactor);
         this.isFirstTime = false;
         return;
     }
@@ -146,7 +149,7 @@ App.prototype.displayContent = function(path){
         this.$body.find('#cover')
             .animate({
                 width: coverWidth
-            }, 500, 'easeOutCubic',  function(){
+            }, 500/$speedUpFactor, 'easeOutCubic',  function(){
                 // Show requested page
                 _self.showPage($page);
 
@@ -156,9 +159,9 @@ App.prototype.displayContent = function(path){
                 setTimeout(function(){
                     _self.$body.find('#cover').animate({
                         width: 5
-                    }, 500,'easeInCubic')
+                    }, 500/$speedUpFactor,'easeInCubic')
 
-                }, 200)
+                }, 200/$speedUpFactor)
             })
     }
 };
