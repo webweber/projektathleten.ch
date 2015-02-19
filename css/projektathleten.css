@@ -10,7 +10,7 @@ font-family:'NHaasGroteskTXW01-75Bd';
 font-family:'NHaasGroteskTXW01-76BdI';
 font-family:'NHaasGroteskDSW01-15Ult';
 font-family:'NHaasGroteskDSW01-16Ult';
-font-family:'NHaasGroteskDSW01-25Th';
+font-family:'NHaasGroteskDSW01-35XLt';
 font-family:'NHaasGroteskDSW01-26ThI';
 font-family:'NHaasGroteskDSW01-35XLt';
 font-family:'NHaasGroteskDSW01-36XLt';
@@ -159,14 +159,14 @@ line-height: 1;
 	padding-right:20px;
 	float:left;
 	font-size:28px;
-	font-family:'NHaasGroteskDSW01-25Th';
+	font-family:'NHaasGroteskDSW01-35XLt';
 	color:#333;
 }
 
 .names_contactInfo,
 .readMore{
 	letter-spacing: 1.5px;
-	font-family:'NHaasGroteskDSW01-25Th';
+	font-family:'NHaasGroteskDSW01-35XLt';
 	color:#333;
 	font-size:20px;
 }
@@ -181,7 +181,7 @@ line-height: 1;
 
 .address{
 	clear:both;
-	font-family:'NHaasGroteskDSW01-25Th';
+	font-family:'NHaasGroteskDSW01-35XLt';
 	padding-top:35px;
 	font-size:18px;
 	color:#333;
@@ -192,7 +192,7 @@ line-height: 1;
 	padding-right:20px;
 	float:left;
 	font-size:28px;
-	font-family:'NHaasGroteskDSW01-25Th';
+	font-family:'NHaasGroteskDSW01-35XLt';
 	line-height: 30px;/* determines height of vertical separator line*/
 	color: #333;
 	letter-spacing:0px; 
@@ -320,6 +320,7 @@ line-height: 1;
 	color:#333;
 }
 
+
 .quote{
 
 	font-family:'NHaasGroteskDSW01-46LtI';
@@ -340,4 +341,9 @@ line-height: 1;
 .swipe_index{
 	position: relative;
 	z-index: 1;
+}
+
+#firma .date{
+	display: inline-block;
+	width: 110px;
 }
