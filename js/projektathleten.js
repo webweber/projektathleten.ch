@@ -47,15 +47,20 @@ $(function(){
 	});
 
 	// Hide all items except self
-	$body.find('.listHeader').siblings().hide();
-	$body.on('click', '.listHeader', function(){
-		$body.find('.listHeader').siblings().hide();
-		$(this).siblings().show();
-		$('.listHeader').removeClass('active');
-		$(this).addClass('active');
-
-	});
 	$('.listitem').prepend('<img src="assets/images/arrow_outline.png" alt="" class="arrow_icon"/>');
 
-
+	$body.find('.listHeader').siblings().hide();
+	$body.on('click', '.listHeader', function(){
+		var listHeader = $('.listHeader');
+		var $this = $(this);
+	if($this.hasClass('active')){
+		$this.removeClass('active');
+		listHeader.siblings().hide();
+	}else{
+		listHeader.removeClass('active');
+		listHeader.siblings().hide();
+		$this.addClass('active');
+		$this.siblings().show()
+	}
+	});
 });
