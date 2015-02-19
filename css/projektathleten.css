@@ -251,6 +251,8 @@ line-height: 1;
 }
 .listHeader{
 	padding-right:15px;
+	cursor: pointer;
+
 }
 
 .unorderedList{
@@ -292,8 +294,11 @@ line-height: 1;
 
 
 .listitem{
+	list-style: none;
 	display:list-item;
 	list-style-position:outside;
+
+
 	/* does not work?
 	list-style-image: url(assets/images/arrow_outline.png);
 	*/
@@ -334,10 +339,15 @@ line-height: 1;
 }
 .navi_sub span a.active{
 	border-bottom: 5px solid #7239c0 !important;
-
+}
+span.listHeader.active{
+color:#7239c0 !important; ;
 }
 
 .swipe_index{
 	position: relative;
 	z-index: 1;
+}
+.arrow_icon{
+	padding-right: 10px;
 }
