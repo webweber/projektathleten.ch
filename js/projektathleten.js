@@ -51,6 +51,9 @@ $(function(){
 	$body.on('click', '.listHeader', function(){
 		$body.find('.listHeader').siblings().hide();
 		$(this).siblings().show();
+		$('.listHeader').removeClass('active');
+		$(this).addClass('active');
+
 	});
 
 });
