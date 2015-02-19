@@ -120,6 +120,9 @@ App.prototype.displayContent = function(path){
         return;
     }
 
+    if(path)
+        this.activeLink(path);
+
     // Show intro if it is first time
     if(this.isFirstTime){
         _self.$body.find('#coverLoad').width(coverWidth);
@@ -140,8 +143,6 @@ App.prototype.displayContent = function(path){
         this.$body.find('.subcategory .content').css('display', 'none');
         $page.find('.content').first().fadeIn(500, 'easeOutCubic');
         //$page.find('.content').first().css('display', 'block');
-        if(path)
-            this.activeLink(path);
     }else{
 
         this.changeCoverImages();
@@ -152,10 +153,6 @@ App.prototype.displayContent = function(path){
             }, 500/$speedUpFactor, 'easeOutCubic',  function(){
                 // Show requested page
                 _self.showPage($page);
-
-                if(path)
-                    _self.activeLink(path);
-
                 setTimeout(function(){
                     _self.$body.find('#cover').animate({
                         width: 5
