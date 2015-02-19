@@ -295,7 +295,7 @@ line-height: 1;
 
 .listitem{
 	list-style: none;
-	display:list-item;
+	display:block;
 	list-style-position:outside;
 
 
