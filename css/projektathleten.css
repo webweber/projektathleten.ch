@@ -10,7 +10,7 @@ font-family:'NHaasGroteskTXW01-75Bd';
 font-family:'NHaasGroteskTXW01-76BdI';
 font-family:'NHaasGroteskDSW01-15Ult';
 font-family:'NHaasGroteskDSW01-16Ult';
-font-family:'NHaasGroteskDSW01-25Th';
+font-family:'NHaasGroteskDSW01-35XLt';
 font-family:'NHaasGroteskDSW01-26ThI';
 font-family:'NHaasGroteskDSW01-35XLt';
 font-family:'NHaasGroteskDSW01-36XLt';
@@ -86,7 +86,9 @@ a:visited {
 a:hover,  .main .naviMainItem a:hover, .main .naviMainItem a.active {
 	text-decoration: none;
 	padding-bottom:5px;
-	border-bottom: 5px solid #7239c0;
+	color: #7239c0;
+	
+	/*border-bottom: 5px solid #7239c0;*/
 	/*cursor: url(../assets/myCursor.png), auto; */
 
 }
@@ -139,8 +141,8 @@ line-height: 1;
 .main, .main a, .category .bigItems a{
 	/*color:#333;*/
 }
-.main a:hover, .main a.active{
-	color: #7239c0;
+.main a:hover{
+	border-bottom: 5px solid #7239c0;
 }
 
 
@@ -159,14 +161,14 @@ line-height: 1;
 	padding-right:20px;
 	float:left;
 	font-size:28px;
-	font-family:'NHaasGroteskDSW01-25Th';
+	font-family:'NHaasGroteskDSW01-35XLt';
 	color:#333;
 }
 
 .names_contactInfo,
 .readMore{
 	letter-spacing: 1.5px;
-	font-family:'NHaasGroteskDSW01-25Th';
+	font-family:'NHaasGroteskDSW01-35XLt';
 	color:#333;
 	font-size:20px;
 }
@@ -181,7 +183,7 @@ line-height: 1;
 
 .address{
 	clear:both;
-	font-family:'NHaasGroteskDSW01-25Th';
+	font-family:'NHaasGroteskDSW01-35XLt';
 	padding-top:35px;
 	font-size:18px;
 	color:#333;
@@ -192,7 +194,7 @@ line-height: 1;
 	padding-right:20px;
 	float:left;
 	font-size:28px;
-	font-family:'NHaasGroteskDSW01-25Th';
+	font-family:'NHaasGroteskDSW01-35XLt';
 	line-height: 30px;/* determines height of vertical separator line*/
 	color: #333;
 	letter-spacing:0px; 
@@ -338,7 +340,9 @@ line-height: 1;
 	color: #8dc63f;
 }
 .navi_sub span a.active{
-	border-bottom: 5px solid #7239c0 !important;
+	color: #7239c0;
+/*	border-bottom: 5px solid #7239c0 !important;*/
+
 }
 span.listHeader.active{
 color:#7239c0 !important; ;
@@ -348,6 +352,29 @@ color:#7239c0 !important; ;
 	position: relative;
 	z-index: 1;
 }
+
+#firma .date{
+	display: inline-block;
+	width: 110px;
+}
+#kontakt .name{
+	display: inline-block;
+	padding-top:20px;
+	padding-bottom:5px;
+	font-size: 14px;
+	font-family:'NHaasGroteskDSW01-75Bd';
+	color: #333;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+#kontakt .phone{
+	display: inline-block;
+	width: 135px;
+}
+#kontakt .email{
+	display: inline-block;
+	width: 260px;
+}}
 .arrow_icon{
 	padding-right: 10px;
 }
