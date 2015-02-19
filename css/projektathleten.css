@@ -86,7 +86,9 @@ a:visited {
 a:hover,  .main .naviMainItem a:hover, .main .naviMainItem a.active {
 	text-decoration: none;
 	padding-bottom:5px;
-	border-bottom: 5px solid #7239c0;
+	color: #7239c0;
+	
+	/*border-bottom: 5px solid #7239c0;*/
 	/*cursor: url(../assets/myCursor.png), auto; */
 
 }
@@ -139,8 +141,8 @@ line-height: 1;
 .main, .main a, .category .bigItems a{
 	/*color:#333;*/
 }
-.main a:hover, .main a.active{
-	color: #7239c0;
+.main a:hover{
+	border-bottom: 5px solid #7239c0;
 }
 
 
@@ -334,7 +336,8 @@ line-height: 1;
 	color: #8dc63f;
 }
 .navi_sub span a.active{
-	border-bottom: 5px solid #7239c0 !important;
+	color: #7239c0;
+/*	border-bottom: 5px solid #7239c0 !important;*/
 
 }
 
@@ -346,4 +349,22 @@ line-height: 1;
 #firma .date{
 	display: inline-block;
 	width: 110px;
+}
+#kontakt .name{
+	display: inline-block;
+	padding-top:20px;
+	padding-bottom:5px;
+	font-size: 14px;
+	font-family:'NHaasGroteskDSW01-75Bd';
+	color: #333;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+#kontakt .phone{
+	display: inline-block;
+	width: 135px;
+}
+#kontakt .email{
+	display: inline-block;
+	width: 260px;
 }
