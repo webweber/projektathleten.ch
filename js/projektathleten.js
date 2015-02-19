@@ -55,5 +55,7 @@ $(function(){
 		$(this).addClass('active');
 
 	});
+	$('.listitem').prepend('<img src="assets/images/arrow_outline.png" alt="" class="arrow_icon"/>');
+
 
 });
