@@ -114,14 +114,14 @@ App.prototype.displayContent = function(path){
         newPath = path || 'projekte',
         $page = this.$body.find('#'+ newPath);
 
+    if(path)
+        this.activeLink(path);
+
     // don't animate if we already on same page
     if(!$page.find('.content').first().is(':hidden')){
         this.resetSubCategory($page);
         return;
     }
-
-    if(path)
-        this.activeLink(path);
 
     // Show intro if it is first time
     if(this.isFirstTime){
