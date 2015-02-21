@@ -63,4 +63,21 @@ $(function(){
 		$this.siblings().show()
 	}
 	});
+
+
+		$body.find('.show_bg_image').hover(function(){
+
+			$body.css('background','url("'+$(this).find('img').attr('src')+'") no-repeat');
+
+		}, function(){
+			$body.css('background','');
+		});
+	$body.find('.show_bg_image').on('mousemove',function(event){
+		$body.attr('top','left');
+		console.log(event);
+		$body.css('backgroundPosition', event.clientX + 'px' + ' ' + 0 + 'px');
+
+	})
+
+
 });
