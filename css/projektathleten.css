@@ -125,6 +125,10 @@ line-height: 1;
 	letter-spacing: 3px;
 
 }
+.show_bg_image{
+	padding: 0 !important;
+	border-bottom:none !important ;
+}
 
 .firstMainNaviItem{
 	padding-right:20px;

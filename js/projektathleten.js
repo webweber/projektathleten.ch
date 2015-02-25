@@ -64,20 +64,15 @@ $(function(){
 	}
 	});
 
-
-		$body.find('.show_bg_image').hover(function(){
-
-			$body.css('background','url("'+$(this).find('img').attr('src')+'") no-repeat');
-
-		}, function(){
-			$body.css('background','');
-		});
+	$body.find('.show_bg_image').hover(function(){
+	},function(){
+		$body.css('background','');
+	});
 	$body.find('.show_bg_image').on('mousemove',function(event){
-		$body.attr('top','left');
-		console.log(event);
-		$body.css('backgroundPosition', event.clientX + 'px' + ' ' + 0 + 'px');
-
+		var X_axis = 370 + event.offsetX * 2;
+		var Y_axis = 120 + event.offsetY * 2;
+		$body.css({'background':'url("'+$(this).find('img').attr('src')+'") no-repeat', 'background-position':  X_axis + 'px ' + Y_axis +'px',
+			'background-size': 'auto 75%'});
 	})
-
 
 });
