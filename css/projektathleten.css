@@ -57,6 +57,7 @@ body{
 
 #bigImage {
 	position: absolute;
+	z-index: 1;
 }
 
 h2, h3, h5{

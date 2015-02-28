@@ -79,7 +79,8 @@ $(function(){
 			winWidthInRequiredPercent = (winWidth * RequiredPercent) / 100,
 			imageNaturalWidth = $img[0].naturalWidth;
 
-		$bigImg.attr('src', $img.attr('src'));
+		$img.css({'zIndex': 2, 'position': 'relative'});
+		$bigImg.attr('src', $img.attr('src')).css({'display': 'block'});
 
 		// Set Image Width
 		if(winWidthInRequiredPercent < imageNaturalWidth){
@@ -93,15 +94,44 @@ $(function(){
 
 	}, function(){
 		var $bigImg = $body.find('#bigImage');
-		$bigImg.attr('src', '');
+		$bigImg.attr('src', '').css({'display': 'none'});
+		$(this).find('img').css({'zIndex': 0, 'position': 'static'});
 	});
 
-	$body.find('.show_bg_image').on('mousemove', function(event){
-		var X_axis = 370 + event.offsetX * 2;
-		var Y_axis = 120 + event.offsetY * 2;
-		$body.css({
-			//'background-position':  X_axis + 'px ' + Y_axis +'px'
-		});
+	$body.find('.show_bg_image img').on('mousemove', function(event){
+		var $bigImg = $body.find('#bigImage'),
+			$img = $(this),
+			imageHeight = $img.height(),
+			imageWidth = $img.width(),
+			imageOffsetTop = $img.offset().top,
+			imageOffsetLeft = $img.offset().left,
+			$window = $(window),
+			winHeight = $window.height(),
+			winWidth = $window.width();
+
+
+		if(event.pageY > imageOffsetTop && event.pageY < (imageOffsetTop + imageHeight) ){
+			var totalLength = (imageOffsetTop + imageHeight) - imageOffsetTop;
+			var secondResult = (imageOffsetTop + imageHeight) - event.pageY;
+			var selectedLength = totalLength - secondResult;
+			var currentPercent = (selectedLength * 100) / totalLength;
+			var positionTop = (winHeight / 100) * currentPercent;
+		}
+
+		if(event.pageX > imageOffsetLeft && event.pageX < (imageOffsetLeft + imageWidth) ){
+			console.log('TOP :', imageOffsetLeft);
+			console.log('End :', (imageOffsetLeft + imageWidth));
+			console.log(event.pageX)
+			console.log(event.pageX)
+
+			var totalLength = (imageOffsetLeft + imageWidth) - imageOffsetLeft;
+			var secondResult = (imageOffsetLeft + imageWidth) - event.pageX;
+			var selectedLength = totalLength - secondResult;
+			var currentPercent = (selectedLength * 100) / totalLength;
+			var positionLeft = (winWidth / 100) * currentPercent;
+		}
+
+		$bigImg.css({'top': positionTop - ($bigImg.height() / 2), 'left': positionLeft - ($bigImg.width() / 2)});
 	})
 
 });
