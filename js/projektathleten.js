@@ -47,7 +47,7 @@ $(function(){
 	});
 
 	// Hide all items except self
-	$('.listitem').prepend('<img src="assets/images/arrow_outline.png" alt="" class="arrow_icon"/>');
+	$body.find('.listitem').prepend('<img src="assets/images/arrow_outline.png" alt="" class="arrow_icon"/>');
 
 	$body.find('.listHeader').siblings().hide();
 	$body.on('click', '.listHeader', function(){
@@ -65,14 +65,43 @@ $(function(){
 	});
 
 	$body.find('.show_bg_image').hover(function(){
-	},function(){
-		$body.css('background','');
+
+		var $window = $(window),
+			$img = $(this).find('img'),
+			$bigImg = $body.find('#bigImage'),
+			RequiredPercent = 75,
+			//Height Calculation
+			winHeight = $window.height(),
+			winHeightInRequiredPercent = (winHeight * RequiredPercent) / 100,
+			imageNaturalHeight = $img[0].naturalHeight,
+			//Width Calculation
+			winWidth = $window.width(),
+			winWidthInRequiredPercent = (winWidth * RequiredPercent) / 100,
+			imageNaturalWidth = $img[0].naturalWidth;
+
+		$bigImg.attr('src', $img.attr('src'));
+
+		// Set Image Width
+		if(winWidthInRequiredPercent < imageNaturalWidth){
+			$bigImg.attr('width', winWidthInRequiredPercent)
+		}
+
+		// Set Image Height
+		if(winHeightInRequiredPercent < imageNaturalHeight){
+			$bigImg.attr('height', winHeightInRequiredPercent)
+		}
+
+	}, function(){
+		var $bigImg = $body.find('#bigImage');
+		$bigImg.attr('src', '');
 	});
-	$body.find('.show_bg_image').on('mousemove',function(event){
+
+	$body.find('.show_bg_image').on('mousemove', function(event){
 		var X_axis = 370 + event.offsetX * 2;
 		var Y_axis = 120 + event.offsetY * 2;
-		$body.css({'background':'url("'+$(this).find('img').attr('src')+'") no-repeat', 'background-position':  X_axis + 'px ' + Y_axis +'px',
-			'background-size': 'auto 75%'});
+		$body.css({
+			//'background-position':  X_axis + 'px ' + Y_axis +'px'
+		});
 	})
 
 });

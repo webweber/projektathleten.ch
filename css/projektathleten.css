@@ -55,6 +55,10 @@ body{
 	background-image: url("../assets/curtain_graphics/intro.png");
 }
 
+#bigImage {
+	position: absolute;
+}
+
 h2, h3, h5{
 	clear:both;
 }
