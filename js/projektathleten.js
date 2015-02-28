@@ -119,11 +119,6 @@ $(function(){
 		}
 
 		if(event.pageX > imageOffsetLeft && event.pageX < (imageOffsetLeft + imageWidth) ){
-			console.log('TOP :', imageOffsetLeft);
-			console.log('End :', (imageOffsetLeft + imageWidth));
-			console.log(event.pageX)
-			console.log(event.pageX)
-
 			var totalLength = (imageOffsetLeft + imageWidth) - imageOffsetLeft;
 			var secondResult = (imageOffsetLeft + imageWidth) - event.pageX;
 			var selectedLength = totalLength - secondResult;
