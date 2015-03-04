@@ -58,6 +58,8 @@ body{
 #bigImage {
 	position: absolute;
 	z-index: 1;
+	/*left: 200px !important;*/
+	/*top: 40px !important;*/
 }
 
 h2, h3, h5{

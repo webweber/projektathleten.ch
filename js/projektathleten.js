@@ -63,70 +63,20 @@ $(function(){
 		$this.siblings().show()
 	}
 	});
-
-	$body.find('.show_bg_image').hover(function(){
-
-		var $window = $(window),
-			$img = $(this).find('img'),
-			$bigImg = $body.find('#bigImage'),
-			RequiredPercent = 75,
-			//Height Calculation
-			winHeight = $window.height(),
-			winHeightInRequiredPercent = (winHeight * RequiredPercent) / 100,
-			imageNaturalHeight = $img[0].naturalHeight,
-			//Width Calculation
-			winWidth = $window.width(),
-			winWidthInRequiredPercent = (winWidth * RequiredPercent) / 100,
-			imageNaturalWidth = $img[0].naturalWidth;
-
-		$img.css({'zIndex': 2, 'position': 'relative'});
-		$bigImg.attr('src', $img.attr('src')).css({'display': 'block'});
-
-		// Set Image Width
-		if(winWidthInRequiredPercent < imageNaturalWidth){
-			$bigImg.attr('width', winWidthInRequiredPercent)
-		}
-
-		// Set Image Height
-		if(winHeightInRequiredPercent < imageNaturalHeight){
-			$bigImg.attr('height', winHeightInRequiredPercent)
-		}
-
-	}, function(){
+    $body.find('.show_bg_image').hover(function(){
 		var $bigImg = $body.find('#bigImage');
-		$bigImg.attr('src', '').css({'display': 'none'});
+		var $img = $(this).find('img');
+		$img.css({'zIndex': 2, 'position': 'relative'});
+		$bigImg.attr('src', $img.attr('src'));
+		$body.find('.show_bg_image img').on('mousemove',function(event){
+			$bigImg.css({'right': event.clientX ,'top' : event.clientY-350});
+		});
+    },function(){
+		var $bigImg = $body.find('#bigImage');
+		var $img = $(this).find('img');
+		setTimeout(function(){
+			$bigImg.attr('src','');
+		},250);
 		$(this).find('img').css({'zIndex': 0, 'position': 'static'});
-	});
-
-	$body.find('.show_bg_image img').on('mousemove', function(event){
-		var $bigImg = $body.find('#bigImage'),
-			$img = $(this),
-			imageHeight = $img.height(),
-			imageWidth = $img.width(),
-			imageOffsetTop = $img.offset().top,
-			imageOffsetLeft = $img.offset().left,
-			$window = $(window),
-			winHeight = $window.height(),
-			winWidth = $window.width();
-
-
-		if(event.pageY > imageOffsetTop && event.pageY < (imageOffsetTop + imageHeight) ){
-			var totalLength = (imageOffsetTop + imageHeight) - imageOffsetTop;
-			var secondResult = (imageOffsetTop + imageHeight) - event.pageY;
-			var selectedLength = totalLength - secondResult;
-			var currentPercent = (selectedLength * 100) / totalLength;
-			var positionTop = (winHeight / 100) * currentPercent;
-		}
-
-		if(event.pageX > imageOffsetLeft && event.pageX < (imageOffsetLeft + imageWidth) ){
-			var totalLength = (imageOffsetLeft + imageWidth) - imageOffsetLeft;
-			var secondResult = (imageOffsetLeft + imageWidth) - event.pageX;
-			var selectedLength = totalLength - secondResult;
-			var currentPercent = (selectedLength * 100) / totalLength;
-			var positionLeft = (winWidth / 100) * currentPercent;
-		}
-
-		$bigImg.css({'top': positionTop - ($bigImg.height() / 2), 'left': positionLeft - ($bigImg.width() / 2)});
-	})
-
+    });
 });
