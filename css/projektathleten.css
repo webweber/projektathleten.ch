@@ -114,6 +114,9 @@ a:active {}
 	margin-right: auto;
 	text-align:left;
 
+		background: rgb(255, 255, 255); /* Fall-back for browsers that don't
+                                    support rgba */
+    background: rgba(255, 255, 255, .35);
 }
 
 #navi_main{
@@ -312,6 +315,8 @@ line-height: 1;
 	display:list-item;
 	list-style-position:outside;
 	line-height:25px;
+
+
 }
 
 .borderLeft{
