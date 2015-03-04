@@ -76,7 +76,8 @@ $(function(){
 			$body.find('.show_bg_image img').on('mousemove',function(event){
 				console.log($(this));
 
-				$bigImg.css({'right': event.clientX ,'top' : event.clientY-350});
+				//$bigImg.css({'right': event.clientX ,'top' : event.clientY-350});
+				$bigImg.css({'right': '5%' ,'top' : event.clientY-300});
 			});
     },function(){
 		delay= true;

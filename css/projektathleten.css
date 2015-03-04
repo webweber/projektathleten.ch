@@ -58,6 +58,7 @@ body{
 #bigImage {
 	position: absolute;
 	z-index: -1;
+	max-height: 75%;
 	/*left: 200px !important;*/
 	/*top: 40px !important;*/
 }
@@ -308,7 +309,7 @@ line-height: 1;
 
 .listitem{
 	list-style: none;
-	display:block;
+	display:list-item;
 	list-style-position:outside;
 	line-height:25px;
 }
