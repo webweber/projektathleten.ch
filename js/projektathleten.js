@@ -63,20 +63,33 @@ $(function(){
 		$this.siblings().show()
 	}
 	});
+
+
+	/**************************Start hover Images**********************************/
+
+	var delay = true;
     $body.find('.show_bg_image').hover(function(){
-		var $bigImg = $body.find('#bigImage');
-		var $img = $(this).find('img');
-		//$img.css({'zIndex': 2, 'position': 'relative'});
-		$bigImg.attr('src', $img.attr('src'));
-		$body.find('.show_bg_image img').on('mousemove',function(event){
-			$bigImg.css({'right': event.clientX ,'top' : event.clientY-350});
-		});
+		delay = false;
+			var $bigImg = $body.find('#bigImage');
+			var $img = $(this).find('img');
+			$bigImg.attr('src', $img.attr('src'));
+			$body.find('.show_bg_image img').on('mousemove',function(event){
+				console.log($(this));
+
+				$bigImg.css({'right': event.clientX ,'top' : event.clientY-350});
+			});
     },function(){
+		delay= true;
 		var $bigImg = $body.find('#bigImage');
 		var $img = $(this).find('img');
 		setTimeout(function(){
-			$bigImg.attr('src','');
+			if(delay) {
+				$bigImg.attr('src', '');
+			}
+			delay = true;
 		},250);
-		//$(this).find('img').css({'zIndex': -5, 'position': 'relative'});
     });
+
+	/**************************End hover Images**********************************/
+
 });
