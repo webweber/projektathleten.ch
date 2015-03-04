@@ -8,6 +8,8 @@ $(function(){
 		$body: $body
 	});
 
+
+
 	// Bind Click on all nav items
 	$body.on('click', '.naviItem', function(e){
 		e.preventDefault();
