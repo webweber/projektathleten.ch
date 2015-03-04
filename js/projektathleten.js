@@ -66,7 +66,7 @@ $(function(){
     $body.find('.show_bg_image').hover(function(){
 		var $bigImg = $body.find('#bigImage');
 		var $img = $(this).find('img');
-		$img.css({'zIndex': 2, 'position': 'relative'});
+		//$img.css({'zIndex': 2, 'position': 'relative'});
 		$bigImg.attr('src', $img.attr('src'));
 		$body.find('.show_bg_image img').on('mousemove',function(event){
 			$bigImg.css({'right': event.clientX ,'top' : event.clientY-350});
@@ -77,6 +77,6 @@ $(function(){
 		setTimeout(function(){
 			$bigImg.attr('src','');
 		},250);
-		$(this).find('img').css({'zIndex': 0, 'position': 'static'});
+		//$(this).find('img').css({'zIndex': -5, 'position': 'relative'});
     });
 });

@@ -57,7 +57,7 @@ body{
 
 #bigImage {
 	position: absolute;
-	z-index: 1;
+	z-index: -1;
 	/*left: 200px !important;*/
 	/*top: 40px !important;*/
 }
