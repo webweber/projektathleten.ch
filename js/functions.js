@@ -1,4 +1,4 @@
-$speedUpFactor = 1;// speed up animations during development. 
+$speedUpFactor = 10;// speed up animations during development. 
                     // For deployment set value to 1!
 
 // Constructor Function
