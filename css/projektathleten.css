@@ -133,6 +133,11 @@ a:active {}
 	  box-sizing: border-box;
 }
 
+.langSelector .active {
+	color: #7239c0;
+}
+
+
 #navi_main{
 	clear:both;¨
 	line-height: 1;

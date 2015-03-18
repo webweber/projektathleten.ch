@@ -1,4 +1,4 @@
-$speedUpFactor = 10;// speed up animations during development. 
+$speedUpFactor = 1;// speed up animations during development. 
                     // For deployment set value to 1!
 
 // Constructor Function
@@ -24,6 +24,8 @@ App.prototype.switchPage = function(e){
     var _self = e ? e.data.ref : this,
         path = location.pathname,
         pathArray = path.split('/');
+
+   // console.log('swîtchPage '+pathArray);
 
     if(!pathArray[pathArray.length - 1]){
         _self.displayContent('', _self.$body);
@@ -93,6 +95,7 @@ App.prototype.preLoader = function(callback){
 };
 
 App.prototype.showPage = function($page){
+   // console.log('showPage '+$page)
     if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
         this.$body.find('.content').css('display', 'none');
         $page.find('.content').first().css('display', 'block');
@@ -109,6 +112,19 @@ App.prototype.resetSubCategory = function($page){
 };
 
 App.prototype.displayContent = function(path){
+
+    //console.log('displayContent '+path)
+
+    if(path == 'english'){
+        $('#navi_main').hide();
+        $('#lang_en').addClass('active');
+        $('#lang_de').removeClass('active');
+    }else{
+         $('#navi_main').show();
+         $('#lang_de').addClass('active');
+         $('#lang_en').removeClass('active');
+    }
+
     var _self = this,
         coverWidth = this.$body.width() - (this.$body.find('.main').offset().left - 15),
         newPath = path || 'projekte',
