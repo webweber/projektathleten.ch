@@ -7,12 +7,12 @@
 
     <!-- ChANGE BASE URL ACCORDING TO YOUR ENVIRONMENT -->
 
-<!--    <base href="http://www.projektathleten.ch/_new/"> --> <!--remote server-->
+  <!--  <base href="http://www.projektathleten.ch/_new/"> --> <!--remote server-->
     <!--<base href="http://zeduxe.com/projektathleten/">  &lt;!&ndash;new server&ndash;&gt;-->
     <!--<base href="http://localhost:8888/projektathleten.ch/">-->  <!--Furqan-->
    <!-- <base href="http://localhost:60/projektathleten.ch/">   Furqan office-->
- <!-- <base href="http://localhost/html/projektathleten.ch/">   --> <!--webweber home-->
-  <base href="http://localhost/projektathleten.ch/">   <!----> <!--webweber office-->
+ <base href="http://localhost/html/projektathleten.ch/">   <!-- --> <!--webweber home-->
+  <!--<base href="http://localhost/projektathleten.ch/">   --> <!--webweber office-->
 
     <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="css/headlineAnimator.css"> <!-- Resource style -->
@@ -46,7 +46,10 @@
         <p>Marco <br />
             Bernet</p>
     </div>
-    <div class='langSelector'><div class='sideBySide'><a id='lang_de' class="active" name="lang_de" href="projekte">de</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div class='borderLeft sideBySide'><a id='lang_en' name="lang_en" href="english">en</a></div></div>
+
+    <div class='langSelector'><div class='sideBySide naviItem'><a id='lang_de' class="active" name="lang_de" href="projekte">de</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div><div class='borderLeft sideBySide naviItem'><a id='lang_en' name="lang_en" href="english">en</a></div></div>
+    
+    
     <div id='navi_main'>
       <div class='naviItem naviMainItem firstNaviItem'><a id='link_projects' name="projekte" href="projekte">Projekte</a></div>
         <div class='naviItem naviMainItem borderLeft'><a id='link_firma' name="firma" href="firma">Über uns</a></div>
@@ -69,9 +72,11 @@
                         <span>Wir entwickeln</span>
                             <span class="cd-words-wrapper">
                                 <b class="is-visible">Projekte.</b>
-                                <b>Talente.</b>
+                                <b>Talente.</b>                                      
                                 <b>Konzepte.</b>
                                 <b>Events.</b>
+                                <!--  
+                                 -->
                                 <b>Visionen.</b>
                             </span>
                         <span></span><br />
@@ -98,20 +103,34 @@
               
               <div class='aktuellHolder'>
                 <p><br/>
-                  <span class='aktuell'>aktuell</span>                  </p>
+                 <a name="aktuell" href="aktuell">
+                  <span class='aktuell'>aktuell</span> </a>                 </p>
              
-                <span class='aktuell2 naviItem'><a name="aktuell" href="aktuell">
+                <span class='aktuell2'>
                     <div>
                       <p>&nbsp;</p>
                       <p>&nbsp;</p>
-                      <p><div class='date'>28.02.2015</div>
+                      <p>
+                        <a name="aktuell" href="aktuell">
+                          <div class='date'>28.02.2015</div>
                     Projektathleten Stammtisch: Montag, 23.3., ab 18h im Ristorante Da Cono, Zürich</p>
+                       </a>
                     </div>
-                    <div><div class='date'>12.01.2015</div>
-                    Axxeva unterstützt Sport Academy Zurich bei Praktikumssuche</div>
-                    <div><div class='date'>17.10.2014</div>
-                    Edemir Rodriguez de Sousa von GolBonito zu Besuch bei der FIFA</div>
-                </a>
+
+                    <div>
+                      <a name="aktuell" href="aktuell">
+                      <div class='date'>12.01.2015</div>
+                    Axxeva unterstützt Sport Academy Zurich bei Praktikumssuche
+                      </a>
+                  </div>
+
+                    <div class='naviItem'>
+                       <a  name="aktuell#edemirBeiFIFA" href="aktuell#edemirBeiFIFA">
+                      <div class='date'>17.10.2014</div>
+                    Edemir Rodriguez de Sousa von GolBonito zu Besuch bei der FIFA
+                       </a>
+                  </div>
+               
                 </span>
               
                
@@ -158,7 +177,7 @@
                         <span class='listitem'>Projektentwicklung & Projekt-Coaching </span>
                         <span class='listitem'>Trainerausbildung, Fundraising, Materialsponsoring</span>
                         <span class='listitem'>
-                        <a href="/projektathleten.ch/assets/documents/GolBonito_Web.pdf" target="_blank">Dokumentation</a>
+                        <a href="assets/documents/GolBonito_Web.pdf" target="_blank">Dokumentation</a>
                         </span>
 					</div>
                </div>                    
@@ -406,7 +425,7 @@
                         <span class='listitem'>FIFA Fussball-Handbücher (seit 2006) <a id='print_20' class="show_bg_image" ><img src="assets/images/print/FIFA_Fitness_Cover.jpg" width="12" height="18" alt="FIFA" /></a> <a id='print_21' class="show_bg_image"><img src="assets/images/print/FIFA_Grassroots_2012-1.jpg" width="12" height="18" alt="FIFA" /></a> <a id='print_30' class="show_bg_image" ><img src="assets/images/print/FIFA_Womens-Football.jpg" width="12" height="18" alt="FIFA" /></a> <a id='print_31' class="show_bg_image" ><img src="assets/images/print/FIFA_Youth-Football_Umschlag_GzD.jpg" width="12" height="18" alt="FIFA" /></a></span>
                         <span class='listitem'>ZESO Zeitschrift für Sozialhilfe, SKOS (seit 2006) <a id='print_22' class="show_bg_image"><img src="assets/images/print/ZESO_04_14_Cover.jpg" width="12" height="18" alt="ZESO" /></a></span>
                      	<span class='listitem'>InfoForum, Pro Bahn Schweiz (seit 2006)  <a id='print_23' class="show_bg_image"><img src="assets/images/print/InfoForum_4_14_Cover.jpg" width="13" height="18" alt="InfoForum" /></a></span>
-                        <span class='listitem'>Verschiedene Werbemittel & Vereinspublikationen (seit 2006) <a id='print_24' class="show_bg_image"><img src="assets/images/print/PARIS_Flyer_A4_HR-1.jpg" width="13" height="18" alt="Verschiedenes" /></a> <a id='print_25' class="show_bg_image"><img src="assets/images/print/Programmheft_Umschlag-1.jpg" width="13" height="18" alt="Verschiedenes" /></a> <a id='print_26' class="show_bg_image"><img src="assets/images/print/VZUG_Cover.jpg" width="12" height="17" alt="Verschiedenes" /></a> <a id='print_28' class="show_bg_image"><img src="assets/images/print/FIFA_Youth-Football_Umschlag_GzD.jpg" width="12" height="18" alt="LetziKids" /></a> <a id='print_27' class="show_bg_image"><img src="assets/images/print/Inserat-Staubitz_4c_181_62_HR.jpg" width="30" height="10" alt="Verschiedenes" /></a></span>
+                        <span class='listitem'>Verschiedene Werbemittel & Vereinspublikationen (seit 2006) <a id='print_24' class="show_bg_image"><img src="assets/images/print/PARIS_Flyer_A4_HR-1.jpg" width="13" height="18" alt="Verschiedenes" /></a> <a id='print_25' class="show_bg_image"><img src="assets/images/print/Programmheft_Umschlag-1.jpg" width="13" height="18" alt="Verschiedenes" /></a> <a id='print_26' class="show_bg_image"><img src="assets/images/print/VZUG_Cover.jpg" width="12" height="17" alt="Verschiedenes" /></a> <a id='print_28' class="show_bg_image"></a> <a id='print_27' class="show_bg_image"><img src="assets/images/print/Inserat-Staubitz_4c_181_62_HR.jpg" width="12" height="17" alt="Verschiedenes" /></a></span>
 
 					</div>
                </div>
@@ -652,9 +671,8 @@
                           <span>Zwei Berufsleben </span>
                             <span class="cd-words-wrapper">
                                 <b class="is-visible">Erfahrung mit Sport & Projekten.</b>
-                                <b>Freude an Qualität.</b>
-                                <b>Spass bei neuen Herausforderungen.</b>
-                                 <b>Freude an Qualität.</b>
+                                <b>voller Freude an Qualität.</b>
+                                <b>mit Spass bei neuen Herausforderungen.</b>
                                  <b>voller Ideen & Kreativität.</b>
                                  
                             </span>
@@ -1083,7 +1101,9 @@ Bericht-Koordination  für U20-WM Argentinien /Holland (2001/2005), WM Japan/Kor
                       </h1>
                   </section> <!-- cd-intro -->
         </div>
-              <p>12.3.2015<br /></p>
+
+        
+              <p><a name="stammtisch" id="stammtisch"></a><span class='dateNews'>12.3.2015</span><br /></p>
        <p>  <span class='listHeader'>Projektathleten Stammtisch</span><br /></p>
       <p> <br />Gerne möchten wir eine Gelegenheit kreieren, uns ein- bis zweimal pro Jahr mit anderen &bdquo;Projektathleten&ldquo; zu vergangenen, aktuellen und zukünftigen (Sport-) Projekten auszutauschen.<u></u><u></u></p>
         <p><u></u> <u></u></p>
@@ -1092,6 +1112,52 @@ Bericht-Koordination  für U20-WM Argentinien /Holland (2001/2005), WM Japan/Kor
         <p>Datum: &nbsp;&nbsp;&nbsp;Montag, 23. März, ab 18h<u></u><u></u></p>
         <p>Ort: &nbsp;&nbsp;&nbsp;<a href="https://www.google.ch/maps/place/Bocciodromo/@47.382679,8.501255,15z/data=!4m2!3m1!1s0x0:0x453ada77d34d7cb8" target="_blank">Ristorante Da Cono, Badenerstrasse 526, 8048 Zürich (Bocciodromo neben Letzigrund)</a></p>
         <p>Konsumation auf eigene Kosten, keine Anmeldung nötig.</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        
+        <p><a name="praktikumssuche" id="praktikumssuche"></a><span class='dateNews'>12.1.2015</span><br /></p>
+       <p>  <span class='listHeader'>Axxeva unterstützt Sport Academy Zurich bei Praktikumssuche</span></p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p>&nbsp;</p>
+       <p><br />
+       </p>
+
+        <p><a name="edemirBeiFIFA" id="edemirBeiFIFA"></a><span class='dateNews'>17.10.2014</span><br /></p>
+       <p>  <span class='listHeader'>Edemir Rodriguez de Sousa von GolBonito zu Besuch bei der FIFA</span><br /></p>
+     
+        
+        
         </span>
        
          

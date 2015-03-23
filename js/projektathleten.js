@@ -1,4 +1,4 @@
-// Wait for the page to ready first
+// Wait for the page to be ready first
 $(function(){
 	// parse 1 time and cache for more usage
 	var $body = $('body');
@@ -14,6 +14,7 @@ $(function(){
 	$body.on('click', '.naviItem', function(e){
 		e.preventDefault();
 		var href = $(this).find('a').attr('href');
+		//console.log('projektathleten.as href '+href)
 		// HISTORY.PUSHSTATE
 		history.pushState('', 'New URL: ' + href, href);
 		app.switchPage();
