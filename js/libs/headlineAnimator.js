@@ -2,7 +2,8 @@ jQuery(document).ready(function($){
 		initHeadline();
 });
 	//set animation timing
-	var animationDelay = 2500,
+	var loop = true,// when true animate continuously - after last word start again with first one 
+		animationDelay = 2500,
 		//loading bar effect
 		barAnimationDelay = 3800,
 		barWaiting = barAnimationDelay - 3000, //3000 is the duration of the transition on the loading bar - set in the scss/css file
@@ -20,6 +21,7 @@ jQuery(document).ready(function($){
 	
 
 	function initHeadline() {
+		console.log('initHeadline');
 		//insert <i> element for each letter of a changing word
 		singleLetters($('.cd-headline.letters').find('b'));
 		//initialise headline animation
@@ -29,8 +31,10 @@ jQuery(document).ready(function($){
 	function singleLetters($words) {
 		$words.each(function(){
 			var word = $(this),
+
 				letters = word.text().split(''),
 				selected = word.hasClass('is-visible');
+console.log(letters+', is visible '+selected);
 			for (i in letters) {
 				if(word.parents('.rotate-2').length > 0) letters[i] = '<em>' + letters[i] + '</em>';
 				letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
@@ -73,8 +77,9 @@ jQuery(document).ready(function($){
 		var nextWord = takeNext($word);
 
 		// stop if there is no next word
-		if(!nextWord)
+	/*	if(!nextWord)
 			return;
+			*/
 
 		if($word.parents('.cd-headline').hasClass('type')) {
 			var parentSpan = $word.parent('.cd-words-wrapper');
@@ -103,7 +108,7 @@ jQuery(document).ready(function($){
 			setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
 
 		} else {
-			console.log('else');
+			//console.log('else');
 			switchWord($word, nextWord);
 			setTimeout(function(){ hideWord(nextWord) }, animationDelay);
 		}
@@ -148,7 +153,18 @@ jQuery(document).ready(function($){
 	}
 
 	function takeNext($word) {
-		return (!$word.is(':last-child')) ? $word.next() : false;//$word.parent().children().eq(0);
+		
+		//	return (!$word.is(':last-child')) ? $word.next() : false;
+
+		if(!$word.is(':last-child')){
+			return  $word.next();
+		}else{
+			if(loop){
+				return $word.parent().children().eq(0);
+			}else{
+				return false;
+			}
+		}
 	}
 
 	function takePrev($word) {
