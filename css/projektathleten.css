@@ -251,6 +251,9 @@ a:active {}
 #aktuell .listHeader{
 	color: #7239c0;
 }
+span.listHeader:hover{
+	border-bottom: 5px solid #7239c0;
+}
 
 .category{
 	clear:both;
@@ -375,7 +378,8 @@ a:active {}
 
 }
 span.listHeader.active{
-color:#7239c0 !important; ;
+color:#7239c0 !important;
+	border-bottom: none !important;
 }
 
 .swipe_index{
