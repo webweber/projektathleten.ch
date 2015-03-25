@@ -393,6 +393,7 @@ span.listHeader:hover{
 }
 span.listHeader.active{
 color:#7239c0 !important; ;
+	border-bottom: none !important;
 }
 
 .swipe_index{
