@@ -17,6 +17,7 @@ App.prototype.initializeStage = function(){
     this.$body.find('.content').css('display', 'none');
     this.switchPage();
     $(window).on('popstate', {ref: this}, this.switchPage);
+    initPictogramAnimator(this);
 };
 
 App.prototype.switchPage = function(e){
@@ -140,6 +141,10 @@ App.prototype.displayContent = function(path){
         newPath = path || 'projekte',
         $page = this.$body.find('#'+ newPath);
 
+    // make vars available for pictogramAnimator
+    this.coverWidth = coverWidth;
+    this.$page = $page;
+
     if(path)
         this.activeLink(path);
 
@@ -171,6 +176,8 @@ App.prototype.displayContent = function(path){
         //$page.find('.content').first().css('display', 'block');
     }else{
 
+        openCurtain();
+/*        
         this.changeCoverImages();
 
         this.$body.find('#cover')
@@ -186,6 +193,7 @@ App.prototype.displayContent = function(path){
 
                 }, 200/$speedUpFactor)
             })
+*/
     }
 };
 
