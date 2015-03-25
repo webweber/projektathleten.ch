@@ -1,29 +1,48 @@
-//instantiate a TimelineLite    
-var tl = new TimelineLite();
-//tl.from(head, 0.5, {left:100, opacity:0});
-
-var holder;
-function initPictogramAnimator(app){
-    holder = app;
+var tl, holder;
+window.onload = function(){
+    //instantiate a TimelineLite    
+ 
+   
 }
 
+
+
+function initPictogramAnimator(app){
+    holder = app;
+    tl = new TimelineLite();
+}
+
+
+
 function openCurtain(){
+    // test();
+
+
     console.log('openCurtain');
+   
     holder.changeCoverImages();
 
+    var cover = holder.$body.find('#cover');
+    tl.to(cover, 1, {width:holder.coverWidth, ease:Cubic.easeIn});
 
-    holder.$body.find('#cover')
-        .animate({
-            width: holder.coverWidth
-        }, 500/$speedUpFactor, 'easeOutCubic',  function(){
-            // Show requested page
-            holder.showPage(holder.$page);
-            setTimeout(function(){
-                holder.$body.find('#cover').animate({
-                    width: 5
-                }, 500/$speedUpFactor,'easeInCubic')
+    tl.call(showPage);
 
-            }, 200/$speedUpFactor)
-        })
+    tl.addLabel('closeCurtain');
+    tl.to(cover, 1.5, {width:"0%", ease:Cubic.easeOut});//
+
+    tl.to($("#pictogram"), 1.5, {left:'-=500px'}, 'closeCurtain-=0.3');
+
+}
+
+function showPage(){
+    holder.showPage(holder.$page);
+}
+
+
+function test(){
+    console.log('just testing');
+  
+    var t = $("#test2");
+    tl.to(t, 0.9, {left:500, ease:Cubic.easeOut});
 
 }

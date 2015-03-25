@@ -99,14 +99,17 @@ App.prototype.preLoader = function(callback){
 
 App.prototype.showPage = function($page){
    
-
     var pageID = $page.attr('id');
-     console.log('showPage '+pageID)
+
+console.log('showPage '+pageID)
     if(pageID == 'english'){
         $('#navi_main').hide();
     }else{
          $('#navi_main').show();
     }
+
+     var _self =  App.prototype;
+
     if($page.filter(':not(.subcategory)').find('.content').is(':hidden')){
         this.$body.find('.content').css('display', 'none');
         $page.find('.content').first().css('display', 'block');
@@ -125,17 +128,7 @@ App.prototype.resetSubCategory = function($page){
 App.prototype.displayContent = function(path){
 
     console.log('displayContent '+path)
-/*
-    if(path == 'english'){
-        $('#navi_main').hide();
-       // $('#lang_en').addClass('active');
-       // $('#lang_de').removeClass('active');
-    }else{
-         $('#navi_main').show();
-       //  $('#lang_de').addClass('active');
-       //  $('#lang_en').removeClass('active');
-    }
-*/
+
     var _self = this,
         coverWidth = this.$body.width() - (this.$body.find('.main').offset().left - 15),
         newPath = path || 'projekte',

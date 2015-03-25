@@ -29,9 +29,6 @@ font-family:'NHaasGroteskDSW01-96Blk';
 -->
 
 
-body,td,th {
-
-}
 
 html{
 	height: 100%;
@@ -50,6 +47,23 @@ body{
 	right: 0;
 	z-index: 2;
 }
+
+#test2,
+#pictogram{
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+/*
+#cover{
+    position: relative;
+    width: 60px;
+    height: 100%;
+}
+*/
+
+
 
 #coverLoad {
 	background-image: url("../assets/curtain_graphics/intro.png");
