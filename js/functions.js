@@ -171,6 +171,8 @@ App.prototype.displayContent = function(path){
         //$page.find('.content').first().css('display', 'block');
     }else{
 
+        openCurtain();
+        
         this.changeCoverImages();
 
         this.$body.find('#cover')
