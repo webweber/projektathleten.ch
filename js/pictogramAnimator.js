@@ -1,10 +1,4 @@
 var tl, holder;
-window.onload = function(){
-    //instantiate a TimelineLite    
- 
-   
-}
-
 
 
 function initPictogramAnimator(app){
@@ -15,11 +9,7 @@ function initPictogramAnimator(app){
 
 
 function openCurtain(){
-    // test();
 
-
-    console.log('openCurtain');
-   
     holder.changeCoverImages();
 
     var cover = holder.$body.find('#cover');

@@ -1,6 +1,3 @@
-$speedUpFactor = 1;// speed up animations during development. 
-                    // For deployment set value to 1!
-
 // Constructor Function
 var App = function(options){
     var _self = this;
@@ -8,6 +5,8 @@ var App = function(options){
     $.extend(this, options);
     //Default Properties
     _self.isFirstTime = true;
+    _self.$speedUpFactor = 1; // speed up animations during development.
+    // For deployment set value to 1!
     _self.preLoader(function(){
         _self.initializeStage();
     });
@@ -157,8 +156,8 @@ App.prototype.displayContent = function(path){
         setTimeout(function(){
             _self.$body.find('#coverLoad').animate({
                 width: 0
-            }, 500/$speedUpFactor,'easeInCubic')
-        }, 1000/ $speedUpFactor);
+            }, 500 /_self.$speedUpFactor,'easeInCubic')
+        }, 1000/ _self.$speedUpFactor);
         this.isFirstTime = false;
         return;
     }
@@ -170,23 +169,6 @@ App.prototype.displayContent = function(path){
     }else{
 
         openCurtain();
-/*        
-        this.changeCoverImages();
-
-        this.$body.find('#cover')
-            .animate({
-                width: coverWidth
-            }, 500/$speedUpFactor, 'easeOutCubic',  function(){
-                // Show requested page
-                _self.showPage($page);
-                setTimeout(function(){
-                    _self.$body.find('#cover').animate({
-                        width: 5
-                    }, 500/$speedUpFactor,'easeInCubic')
-
-                }, 200/$speedUpFactor)
-            })
-*/
     }
 };
 

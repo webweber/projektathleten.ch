@@ -15,7 +15,8 @@ jQuery(document).ready(function($){
 		typeAnimationDelay = selectionDuration + 800,
 		//clip effect 
 		revealDuration = 600,
-		revealAnimationDelay = 1500;
+		revealAnimationDelay = 1500,
+		animateCount = [];
 	
 
 	
@@ -120,8 +121,16 @@ console.log(letters+', is visible '+selected);
 			$word.addClass('is-visible').removeClass('is-hidden');
 
 		}  else if($word.parents('.cd-headline').hasClass('clip')) {
+
+			// Clean previous setTimeOuts for prevent doubling animation issue
+			for(var i = 0; i < animateCount.length; i++ ){
+				clearTimeout(animateCount[i]);
+			}
+			animateCount = [];
+
 			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.innerWidth() }, revealDuration, function(){
-				 setTimeout(function(){ hideWord($word) }, revealAnimationDelay);
+				var setTimeOut = setTimeout(function(){ hideWord($word) }, revealAnimationDelay);
+				animateCount.push(setTimeOut);
 			});
 		}
 	}

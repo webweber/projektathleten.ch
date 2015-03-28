@@ -14,7 +14,6 @@ $(function(){
 	$body.on('click', '.naviItem', function(e){
 		e.preventDefault();
 		var href = $(this).find('a').attr('href');
-		//console.log('projektathleten.as href '+href)
 		// HISTORY.PUSHSTATE
 		history.pushState('', 'New URL: ' + href, href);
 		app.switchPage();
@@ -80,7 +79,7 @@ $(function(){
 				console.log($(this));
 
 				//$bigImg.css({'right': event.clientX ,'top' : event.clientY-350});
-				$bigImg.css({'right': '5%' ,'top' : event.clientY-300});
+				$bigImg.css({'right': '5%' ,'top' : event.clientY - 300});
 			});
     },function(){
 		delay= true;
