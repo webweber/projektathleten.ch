@@ -48,7 +48,21 @@ body{
 	z-index: 2;
 }
 
-#test2,
+#pictogram, #pictogramAddOn{
+	left:-300px;
+	top:50px;
+	z-index: 3;
+}
+
+#pictogramAddOn{
+	position: absolute;
+  	left: 0;
+	z-index: 4;
+}
+
+
+
+
 #pictogram{
     position: relative;
     width: 60px;
