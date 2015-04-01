@@ -8,7 +8,7 @@ $(function(){
 		$body: $body
 	});
 
-
+	console.log('projektathleten.js')
 
 	// Bind Click on all nav items
 	$body.on('click', '.naviItem', function(e){

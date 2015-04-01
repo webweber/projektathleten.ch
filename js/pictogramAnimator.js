@@ -4,7 +4,7 @@ var tl, holder, $body, image;
 function initPictogramAnimator(app){
     holder = app;
     tl = new TimelineLite();
-   $body = $('body');
+    $body = $('body');
 }
 
 
@@ -30,6 +30,11 @@ function openCurtain(){
     if(image.name == 'kugelstossen'){
         tl.fromTo(picto, 1.5, {left:''+(winWidth+picWidth)+'px'}, {left:0, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
         tl.fromTo(pictoAddOn, 1.5, {left:''+(winWidth+picWidth)+'px', top:paddingTop+'px'}, {left:0, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
+    }if(image.name == 'weightlifting_before'){
+         $("#pictogramAddOn").hide();
+         $("#pictogram").show();
+        tl.fromTo(picto, 1.5, {left:''+(winWidth)+'px'}, {left:0, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
+       // tl.fromTo(pictoAddOn, 1.5, {left:''+(winWidth+picWidth)+'px', top:paddingTop+'px'}, {left:0, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
     }else{
         tl.fromTo(picto, 1.5, {left:''+(winWidth+picWidth)+'px'}, {left:-picWidth+'px', ease:Cubic.easeOut}, '-='+durCurtainOpen/3);
     }
@@ -39,8 +44,13 @@ function openCurtain(){
 
     var durCurtainClose = 1.5;
      if(image.name == 'kugelstossen'){
+
         tl.to(picto, durCurtainClose, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd');
         tl.to(pictoAddOn, 0.6, {left:'-'+picWidth+'px', top:'-'+picWidth+'px', ease:Expo.easeOut}, 'athleteInEnd-=0.3');
+    }if(image.name == 'weightlifting_before'){
+        $("#pictogram").hide();
+        $("#pictogramAddOn").show();
+        tl.fromTo(pictoAddOn, 1.5, {left:'0px'}, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInStart+='+durCurtainOpen/3);
     }
 
     tl.addLabel('closeCurtain');
@@ -74,7 +84,7 @@ function getCoverImages(){
         {name:'huerdenlauf', addOn:'huerde'},
         {name:'kugelstossen', addOn:'kugel'},
         {name:'speerwurf', addOn:'speer'},
-        {name:'weightlifting', addOn:'weight'},
+        {name:'weightlifting_before', addOn:'weightlifting_after'},
         {name:'fackellauf'},
         {name:'skijump'},
         {name:'gymnastik'},
@@ -88,7 +98,7 @@ function changeCoverImages(path){
     image = getCoverImages()[Math.floor(Math.random() * this.getCoverImages().length)];
 
 // hardcode, no random - for testing
-//image = getCoverImages()[3];
+image = getCoverImages()[5];
 
     console.log('changeCoverImages '+image.name);
 
@@ -98,21 +108,24 @@ function changeCoverImages(path){
 };
 
 function preLoader(callback){
+    console.log('preloader');
     var _self = this,
-        imageNames = _self.getCoverImages(),
+        imageNames = getCoverImages(),
         images = [],
         count = 0,
         loadCheck;
-    imageNames.push('intro.png');
+    //imageNames.push('intro.png');
     for(var i = 0; imageNames.length > i ; i++){
         images[i] = new Image();
-        images[i].src = 'assets/images/athletics_icons/selection/' + imageNames[i]+'.gif';
+        images[i].src = 'assets/images/athletics_icons/selection/' + imageNames[i].name+'.gif';
         images[i].onload = function(){
             count ++
         }
     }
     loadCheck = setInterval(function(){
+
         if(count == imageNames.length){
+            console.log('preLoader - all images preloaded');
             callback();
             clearInterval(loadCheck);
         }

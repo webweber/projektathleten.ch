@@ -1,5 +1,6 @@
 // Constructor Function
 var App = function(options){
+    console.log('functions, App');
     var _self = this;
     // copy all options to this Object
     $.extend(this, options);
@@ -7,12 +8,15 @@ var App = function(options){
     _self.isFirstTime = true;
     _self.$speedUpFactor = 1; // speed up animations during development.
     // For deployment set value to 1!
-    _self.preLoader(function(){
+  // _self.preLoader(function(){
+    preLoader(function(){
+        console.log('preloaderCallback')
         _self.initializeStage();
     });
 };
 
 App.prototype.initializeStage = function(){
+    console.log('initializeStage');
     this.$body.find('.content').css('display', 'none');
     this.switchPage();
     $(window).on('popstate', {ref: this}, this.switchPage);
@@ -73,7 +77,7 @@ App.prototype.changeCoverImages = function(path){
         backgroundImage: 'url("assets/curtain_graphics/'+ image +'")'
     });
 };
-
+/*
 App.prototype.preLoader = function(callback){
     var _self = this,
         imageNames = _self.getCoverImages(),
@@ -95,7 +99,7 @@ App.prototype.preLoader = function(callback){
         }
     }, 100);
 };
-
+*/
 App.prototype.showPage = function($page){
    
     var pageID = $page.attr('id');
