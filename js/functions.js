@@ -14,11 +14,14 @@ var App = function(options){
     preLoader(function(){
         _self.initializeStage();
     });
+
+
 };
 
 App.prototype.initializeStage = function(){
     this.$body.find('.content').css('display', 'none');
     this.switchPage();
+    this.audio = new Audio('assets/sounds/soccerKick.mp3');
     $(window).on('popstate', {ref: this}, this.switchPage);
 };
 
@@ -79,6 +82,11 @@ App.prototype.resetSubCategory = function($page){
     $page.find('.content .navi_sub a').removeClass('active');
     $page.find('.content .subcategories .content').hide();
 };
+
+App.prototype.playSound = function(){
+  //  console.log('playSound');
+    this.audio.play(); 
+}
 
 App.prototype.displayContent = function(path){
 

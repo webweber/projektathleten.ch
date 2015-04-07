@@ -8,7 +8,7 @@ $(function(){
 		$body: $body
 	});
 
-	console.log('projektathleten.js')
+	
 
 	// Bind Click on all nav items
 	$body.on('click', '.naviItem', function(e){
@@ -17,6 +17,11 @@ $(function(){
 		// HISTORY.PUSHSTATE
 		history.pushState('', 'New URL: ' + href, href);
 		app.switchPage();
+	});
+
+	$body.on('click',  function(){
+			//console.log('click');
+			app.playSound();
 	});
 
 	// Swipe images
