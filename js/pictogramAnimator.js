@@ -135,7 +135,7 @@ function openCurtain(){
     }else if(image.name == 'football'){
         curtainCloseDelay = 0.2;
         tl.to(picto, durCurtainClose, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd');
-        tl.to(pictoAddOn, 0.5, {left:''+(-picWidth)+'px', top:'0px', ease:Expo.easeOut}, 'athleteInEnd');
+        tl.to(pictoAddOn, 0.5, {left:''+(-picWidth)+'px', top:'-100px', ease:Expo.easeOut}, 'athleteInEnd');
     }else if(image.name == 'volleyball'){
         curtainCloseDelay = 0.2;
         tl.to(picto, durCurtainClose, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd');
