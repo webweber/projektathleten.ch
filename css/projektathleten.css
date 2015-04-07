@@ -26,7 +26,7 @@ font-family:'NHaasGroteskDSW01-95Blk';
 font-family:'NHaasGroteskDSW01-96Blk';
 
 
--->
+
 
 
 
@@ -35,9 +35,11 @@ html{
 }
 body{
 	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden; <!-- avoid horizontal scrollbars-->
 }
 
-#cover, #coverLoad{
+#cover{
 	width: 5px;
 	height: 100%;
 	position: fixed;
@@ -48,16 +50,34 @@ body{
 	z-index: 2;
 }
 
-#pictogram, #pictogramAddOn{
+#pictogram, #pictogramAddOn, #pictogramAddOn2, #pictogramAddOn3{
 	left:-300px;
 	top:50px;
 	z-index: 3;
+	width: 0px;
+    height: 0px;
 }
 
-#pictogramAddOn{
+#pictogramHolder{
+	visibility:hidden;
+	
+}
+
+#pictogramAddOn,
+#pictogramAddOn2,
+#pictogramAddOn3
+{
 	position: absolute;
   	left: 0;
 	z-index: 4;
+}
+
+#pictogramAddOn2{
+	z-index: 5;
+}
+
+#pictogramAddOn2{
+	z-index: 6;
 }
 
 
@@ -65,23 +85,9 @@ body{
 
 #pictogram{
     position: relative;
-    width: 60px;
-    height: 60px;
+
 }
 
-/*
-#cover{
-    position: relative;
-    width: 60px;
-    height: 100%;
-}
-*/
-
-
-
-#coverLoad {
-	background-image: url("../assets/curtain_graphics/intro.png");
-}
 
 #bigImage {
 	position: absolute;
@@ -121,7 +127,7 @@ a:visited {
 
 a:hover,  .main .naviMainItem a:hover, .main .naviMainItem a.active {
 	text-decoration: none;
-	padding-bottom:5px;
+	padding-bottom:4px;
 	color: #7239c0;
 	
 	/*border-bottom: 5px solid #7239c0;*/
@@ -311,7 +317,7 @@ span.listHeader:hover{
 .subcategory h5,
 .listHeader{
 
-	padding-bottom:12px;
+	padding-bottom:5px;
 	font-size: 14px;
 	font-family:'NHaasGroteskDSW01-75Bd';
 	color: #8dc63f;
@@ -441,6 +447,10 @@ color:#7239c0 !important; ;
 #kontakt .email{
 	display: inline-block;
 	width: 260px;
+}
+
+#kontakt a{
+	color: #8dc63f;
 }
 
 .contactEnglish{

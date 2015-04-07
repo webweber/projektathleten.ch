@@ -57,12 +57,12 @@ $(function(){
 		var $this = $(this);
 	if($this.hasClass('active')){
 		$this.removeClass('active');
-		listHeader.siblings().slideUp();
+		listHeader.siblings().slideUp(350, 'easeInCubic');
 	}else{
 		listHeader.removeClass('active');
-		listHeader.siblings().slideUp();
+		listHeader.siblings().slideUp(250, 'easeInCubic');
 		$this.addClass('active');
-		$this.siblings().slideDown()
+		$this.siblings().slideDown(400, 'easeOutCubic')
 	}
 	});
 
