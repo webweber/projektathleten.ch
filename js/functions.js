@@ -6,7 +6,7 @@ var App = function(options){
     $.extend(this, options);
     //Default Properties
     _self.isFirstTime = true;
-    _self.$speedUpFactor = 10; // speed up animations during development.
+    _self.$speedUpFactor = 1; // speed up animations during development.
     // For deployment set value to 1!
 
     initPictogramAnimator(this);
@@ -116,9 +116,9 @@ App.prototype.displayContent = function(path){
         openCurtain();
 
         if(this.isFirstTime){
-            this.unveilScene();
+            //this.unveilScene();
             // Display page
-            _self.showPage($page);
+           _self.showPage($page);
             this.isFirstTime = false;
         }
     }

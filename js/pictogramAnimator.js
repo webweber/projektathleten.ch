@@ -8,32 +8,38 @@ function initPictogramAnimator(app){
     logo =  {name:'logo_links', addOn:'logo_rechts', addOn2:'logo_firmenname', addOn3:'logo_namen'};
 
     pictograms =  [
-        {name:'fackellauf', sound:'running', soundStart:'init'},
+
+        {name:'football', addOn:'football_ball'},
+         {name:'kugelstossen', addOn:'kugel', sound:'corkPop', soundStart:''},
+          {name:'gymnastik_horizontal', addOn:'gymnastik', sound:'click', soundStart:''},
+        {name:'speerwurf', addOn:'speer', sound:'arrowImpact', soundStart:''},
         {name:'weightlifting_before', addOn:'weightlifting_after', sound:'click', soundStart:''},
+       {name:'gymnastik_reif', sound:'ballHitsGround', soundStart:''},
+       
+        
+        {name:'riding', addOn:'polo', sound:'wiehern', soundStart:''},
+         {name:'volleyball', addOn:'volleyball_ball'},
+        {name:'fackellauf', sound:'turnOnGas', soundStart:'init'},
+         {name:'eislauf', sound:'skating', soundStart:'init'},
         {name:'hammerwerfen', addOn:'hammer', sound:'rotor', soundStart:'init'},
 
-        {name:'gymnastik_horizontal', addOn:'gymnastik', sound:'click', soundStart:''},
-        {name:'gymnastik_reif', sound:'ballHitsGround', soundStart:''},
-        {name:'riding', addOn:'polo', sound:'horses', soundStart:'init'},
-         {name:'curling', addOn:'curlingBall', sound:'curling', soundStart:'init'},
-        {name:'football', addOn:'football_ball'},
-        {name:'volleyball', addOn:'volleyball_ball'},
-
-        
+        {name:'curling', addOn:'curlingBall', sound:'curling', soundStart:''},
        
+        
+        
+        {name:'skijump', addOn:'skijump_ski', sound:'goingUp', soundStart:''}
+       
+
         
         //{name:'huerdenlauf', addOn:'huerde'},
-        
-        {name:'speerwurf', addOn:'speer'},
+       
         
        
-        {name:'skijump', addOn:'skijump_ski'},
-        {name:'eislauf'},
 
-        {name:'kugelstossen', addOn:'kugel', sound:'click', soundStart:''}
+       
     ];
 
-    pictograms = shuffle(pictograms);
+  //  pictograms = shuffle(pictograms);
     pictoCount = 0;
 }
 
@@ -65,12 +71,17 @@ function openCurtain(){
     tl.to(picto, 0, {rotation:0, top:paddingTop, scaleX:1});
     tl.to(pictoAddOn, 0, {rotation:0, top:paddingTop, scaleX:1});
 
+    if(image.name == 'logo_links'){
+         tl.call(playSound);
+    }
+
     tl.to(cover, durCurtainOpen, {width:winWidth, ease:Cubic.easeInOut}, 'start');
 
     tl.addLabel('athleteInStart');
     tl.call(makePictosVisible);
 
     if(image.name == 'logo_links'){
+        tl.call(unveilScene);
         var leftMargin =  ($(window).width() * 0.15)-74;
         tl.fromTo(picto, 1.5/holder.$speedUpFactor, {left:''+(winWidth + 100  )+'px'}, {left:leftMargin+'px', ease:Cubic.easeOut}, 'athleteInStart-='+0);
         tl.fromTo(pictoAddOn, 1.5/holder.$speedUpFactor, {left:''+(winWidth + 300)+'px'}, {left:(leftMargin)+'px', ease:Cubic.easeOut}, 'athleteInStart-='+0);
@@ -88,26 +99,29 @@ function openCurtain(){
         tl.fromTo(pictoAddOn, 0.5, {left:''+(-100)+'px', top:-200}, {left:meetingPoint+'px', top:paddingTop, ease:Expo.easeIn}, 'athleteInStart+='+0.5);
         tl.call(playSound);
     }else if(image.name == 'curling'){
+         
         tl.fromTo(picto, 2.5, {left:''+(winWidth)+'px'}, {left:-picWidth+'px', ease:Cubic.easeOut}, 'athleteInStart-='+0);
         tl.fromTo(pictoAddOn, 2.5, {left:''+(winWidth)+'px'}, {left:-(picWidth+200)+'px', ease:Cubic.easeOut}, 'athleteInStart-='+0);
+        tl.call(playSound, [image.sound]);
     }else if(image.name == 'kugelstossen'){
        
-        tl.fromTo(picto, 1.5, {left:''+(winWidth+picWidth)+'px'}, {left:0, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
-         tl.call(playSound, [image.sound]);
-        tl.fromTo(pictoAddOn, 1.5, {left:''+(winWidth+picWidth)+'px', top:paddingTop+'px'}, {left:0, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
+        tl.fromTo(picto, 1.2, {left:''+(winWidth+picWidth)+'px'}, {left:0, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
+        tl.fromTo(pictoAddOn, 1.2, {left:''+(winWidth+picWidth)+'px', top:paddingTop+'px'}, {left:0, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
 
     }else if(image.name == 'gymnastik_reif'){
         tl.fromTo(picto, 2.5, {left:''+(winWidth)+'px'}, {left:0, ease:Cubic.easeIn, rotation:'-='+720, transformOrigin:"145px 155px"}, 'athleteInStart-='+durCurtainOpen);
         tl.call(playSound, [image.sound]);
     }else if(image.name == 'skijump'){
-        tl.fromTo(picto, 1.5, {left:''+(winWidth+picWidth)+'px'}, {top:-50, rotation:0, left:-picWidth+'px', ease:Cubic.easeIn}, 'athleteInStart-='+durCurtainOpen);
-        tl.fromTo(pictoAddOn, 1.5, {left:''+(winWidth+picWidth+100)+'px'}, {top:-50, rotation:0, left:-(picWidth+50)+'px', ease:Cubic.easeIn}, 'athleteInStart-='+durCurtainOpen);
+        tl.call(playSound, [image.sound]);
+        tl.fromTo(picto, 1.5, {top:150, left:''+(winWidth+picWidth)+'px'}, {top:-50, rotation:0, left:-picWidth+'px', ease:Cubic.easeIn}, 'athleteInStart-='+durCurtainOpen);
+        tl.fromTo(pictoAddOn, 1.5, {top:150,left:''+(winWidth+picWidth+100)+'px'}, {top:-50, rotation:0, left:-(picWidth+50)+'px', ease:Cubic.easeIn}, 'athleteInStart-='+durCurtainOpen);
     }else if(image.name == 'riding'){
+        tl.call(playSound, [image.sound]);
         tl.fromTo(picto, 2.5, {left:''+(winWidth+picWidth)+'px'}, {left:-picWidth+'px', ease:Linear.easeIn}, 'athleteInStart-='+durCurtainOpen);//
         tl.fromTo(pictoAddOn, 2.4, { left:''+(winWidth+picWidth+0)+'px'}, { left:-(picWidth+300)+'px', ease:Cubic.easeIn}, 'athleteInStart-='+durCurtainOpen);
     }else if(image.name == 'speerwurf'){
-        tl.fromTo(picto,      1.5, { left:''+(winWidth+picWidth)+'px'}, {top:120, left:0, rotation:-20, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
-        tl.fromTo(pictoAddOn, 1.5, { left:''+(winWidth+picWidth)+'px'}, {top:120, left:0, rotation:-20, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
+        tl.fromTo(picto,      1.5, { top:paddingTop, left:''+(winWidth+picWidth)+'px'}, {top:120, left:0, rotation:-20, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
+        tl.fromTo(pictoAddOn, 1.5, { top:paddingTop, left:''+(winWidth+picWidth)+'px'}, {top:120, left:0, rotation:-20, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
     }else if(image.name == 'weightlifting_before'){
         hideAddOnShowPicto();
         tl.fromTo(picto, 1.0, {left:''+(winWidth)+'px'}, {left:0, ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
@@ -116,6 +130,9 @@ function openCurtain(){
         tl.call(swapGymnast);
         tl.fromTo(picto, 2.5, {left:''+(winWidth)+'px'}, {left:-(2*picWidth)+'px', ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
         tl.fromTo(pictoAddOn, 2.5, {left:''+(winWidth)+'px'}, {left:-(2*picWidth)+'px', ease:Cubic.easeOut}, 'athleteInStart-='+durCurtainOpen/3);
+    }else if(image.name == 'fackellauf'){
+
+        tl.fromTo(picto, 2.5, {left:''+(winWidth+picWidth)+'px'}, {left:-(1.5*picWidth)+'px', ease:Cubic.easeInOut}, '+='+durCurtainOpen/3);
     }else if(image.name == 'hammerwerfen'){
         hideAddOnShowPicto();
         tl.fromTo(picto, 2.5, {left:''+(winWidth)+'px'}, {left:-picWidth+'px',  ease:Cubic.easeIn}, 'athleteInStart-='+durCurtainOpen);
@@ -125,6 +142,7 @@ function openCurtain(){
         tl.to(picto, 0.3,  {scaleX:1}, 'athleteInStart+='+1.1);
         tl.to(picto, 0.3,  {scaleX:-1}, 'athleteInStart+='+1.3);
     }else{
+       //  tl.call(playSound, [image.sound]);
         tl.fromTo(picto, 1.5, {left:''+(winWidth+picWidth)+'px'}, {left:-(1.5*picWidth)+'px', ease:Cubic.easeOut}, '-='+durCurtainOpen/3);
     }
     tl.addLabel('athleteInEnd');
@@ -135,6 +153,7 @@ function openCurtain(){
     var curtainCloseDelay = 0.1;
 
     if(image.name == 'logo_links'){
+         //tl.call(playSound);
         curtainCloseDelay = durCurtainClose/3;
         tl.to(picto, durCurtainClose/holder.$speedUpFactor, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd+='+(curtainCloseDelay));
         tl.to(pictoAddOn, durCurtainClose/holder.$speedUpFactor, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd+='+(curtainCloseDelay-0.05));
@@ -142,12 +161,16 @@ function openCurtain(){
         tl.to(pictoAddOn3, durCurtainClose/holder.$speedUpFactor, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd+='+(curtainCloseDelay-0.1));
 
     }else if(image.name == 'kugelstossen'){
-        tl.to(picto, durCurtainClose, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd');
-        tl.to(pictoAddOn, 0.6, {left:'-'+picWidth+'px', top:'-'+picWidth+'px', ease:Expo.easeOut}, 'athleteInEnd-=0.3');
+        curtainCloseDelay = 0.3;
+        tl.call(playSound, [image.sound]);
+        tl.to(picto, durCurtainClose, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd+=0.3');
+        tl.to(pictoAddOn, 0.6, {left:'-'+picWidth+'px', top:'-'+picWidth+'px', ease:Expo.easeOut}, 'athleteInEnd-=0.0');
     }else if(image.name == 'gymnastik_reif'){
         durCurtainClose = 1.5;
         curtainCloseDelay = 0.0;
         tl.to(picto, durCurtainClose, {left:''+(winWidth+picWidth)+'px', rotation:'+='+680, ease:Expo.easeOut}, 'athleteInEnd');
+    }else if(image.name == 'gymnastik_horizontal'){
+       //curtainCloseDelay = -0.3;
     }else if(image.name == 'football'){
         curtainCloseDelay = 0.2;
         tl.to(picto, durCurtainClose, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd');
@@ -157,8 +180,10 @@ function openCurtain(){
         tl.to(picto, durCurtainClose, {left:''+(winWidth+picWidth)+'px', ease:Cubic.easeOut}, 'athleteInEnd');
         tl.to(pictoAddOn, 0.5, {left:''+(-100)+'px', top:'-200px', ease:Expo.easeOut}, 'athleteInEnd');
     }else if(image.name == 'speerwurf'){
+        tl.call(playSound, [image.sound]);
         tl.to(picto, 1, {rotation:-120, left:''+0-(2*picWidth)+'px', top:'300px', ease:Expo.easeOut}, 'athleteInEnd-=0.3');
         tl.to(pictoAddOn, 1, {left:'-'+picWidth+'px', top:'-'+picWidth+'px', ease:Expo.easeOut}, 'athleteInEnd-=0.3');
+
         curtainCloseDelay = 0.2;
     }else if(image.name == 'weightlifting_before'){
         curtainCloseDelay = durCurtainClose/3;
@@ -242,7 +267,7 @@ function changePictograms(){
     
         // hardcode, no random - for testing
         // in combination with ommitting  pictograms = shuffle(pictograms);
-        //image = pictograms[0];
+       // image = pictograms[0];
     }
 
    $('#pictogram img').attr("src", 'assets/images/athletics_icons/selection/' + image.name+'.gif');
