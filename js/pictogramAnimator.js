@@ -89,7 +89,7 @@ function openCurtain(){
         tl.fromTo(pictoAddOn3, 1.5/holder.$speedUpFactor, {left:''+(winWidth + 700)+'px'}, {left:(leftMargin)+'px', ease:Cubic.easeOut}, 'athleteInStart-='+0);
 
     }else if(image.name == 'football'){
-        var meetingPoint = 500;//($(window).width() * 0.15)
+        var meetingPoint = 300;//($(window).width() * 0.15)
         tl.fromTo(picto, 1, {left:''+(winWidth)+'px'}, {left:meetingPoint+'px', ease:Cubic.easeIn}, 'athleteInStart-='+0.3);
         tl.fromTo(pictoAddOn, 0.7, {left:''+(-picWidth)+'px'}, {left:meetingPoint+'px', top:paddingTop, ease:Expo.easeIn}, 'athleteInStart+='+0);
         tl.call(playSound);
@@ -99,7 +99,7 @@ function openCurtain(){
         tl.fromTo(pictoAddOn, 0.5, {left:''+(-100)+'px', top:-200}, {left:meetingPoint+'px', top:paddingTop, ease:Expo.easeIn}, 'athleteInStart+='+0.5);
         tl.call(playSound);
     }else if(image.name == 'curling'){
-         
+
         tl.fromTo(picto, 2.5, {left:''+(winWidth)+'px'}, {left:-picWidth+'px', ease:Cubic.easeOut}, 'athleteInStart-='+0);
         tl.fromTo(pictoAddOn, 2.5, {left:''+(winWidth)+'px'}, {left:-(picWidth+200)+'px', ease:Cubic.easeOut}, 'athleteInStart-='+0);
         tl.call(playSound, [image.sound]);
